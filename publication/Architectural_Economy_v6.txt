@@ -1,0 +1,1121 @@
+ARCHITECTURAL ECONOMY — VERSION 6.0
+Plain-text accessibility/search companion extracted from the approved PDF.
+Figures are not included and table alignment may differ. The formatted PDF and DOCX are authoritative.
+
+<PARSED TEXT FOR PAGE: 1 / 21>
+
+ARCHITECTURAL ECONOMY / HYPOTHESIS & COMPUTATIONAL STUDY
+
+
+
+
+Architectural Economy in Biological and Technological Systems
+Architectural economy, shared dependencies and functional continuity: from the PDP-8 to the regulatory genome
+
+Randall S. Young | Independent Researcher, Indiana, USA
+ORCID: https://orcid.org/0009-0003-1657-0243
+24 November 2026 | Version 6.0 — preprint candidate; not peer reviewed
+
+
+
+Abstract
+Biological systems and engineered technologies confront a shared class of architectural problems: generating
+diverse, reliable behavior under finite material, energetic, and informational resources. We define architectural
+economy as the context-dependent capacity to achieve a required portfolio of functions through composable
+primitives, reuse, modular organization, and distributed control while accommodating the costs of robustness and
+adaptation. The 1965 DEC PDP-8 illustrates how economical hardware supports complex software-defined
+behavior through subroutine reuse, while exposing a fundamental trade-off: shared control elements reduce static
+implementation cost but concentrate failure liability. In biological systems, conserved molecular machinery and
+distributed genomic regulatory networks present a mechanistically distinct yet analytically comparable trade-off.
+
+Two computational benchmarks examine the trade-off: 30 seeded portfolios of matched combinatorial networks
+and a PDP-8 instruction-level multiplication benchmark. At 32 synthetic outputs, reuse reduces distinct nodes by
+50.9% but increases mean motif-fault impact from 0.96 to 4.08 outputs; targeted buffering reduces the latter to
+0.10, or 0.485 under the broader internal-node fault model. At 64 PDP-8 tasks, a shared subroutine saves 70.8% of
+code words at a 4.1% modeled memory-cycle cost, but increases mean non-timeout routine-fault impact from 0.93
+to 55.82 tasks. Dual modularity and redundant verification reduce this dependency. Wider fault injection reveals
+vulnerability in the coordination machinery itself. Exhaustive functional checks cover 16,384 multiplication
+results and 540 network comparisons across all 4,096 input states, without discrepancies.
+
+An exploratory genomic pilot tested whether weakly buffered downstream influence predicts noncoding sequence
+constraint (H2), combining K562 perturbation profiles, ABC enhancer–gene maps and 241-way phyloP scores (636
+regions, 408 genes). The association was not supported: adjusted reach β = −0.026 (95% CI −0.094 to 0.042);
+reach–buffering interaction β = 0.012 (−0.056 to 0.080). Held-out prediction deteriorated with added predictors.
+We therefore distinguish sequence constraint from a prospective hypothesis of functional continuity (H3).
+Functional Equivalence Mapping (H3-M) proposes measuring sequence divergence against independently assayed
+activity in primate enhancers, using prespecified equivalence limits, then testing whether architectural measures
+predict tolerance. Neither H3 nor H3-M has yet been tested here.
+
+Keywords: architectural economy; PDP-8; regulatory genomics; evolutionary constraint; functional continuity;
+functional equivalence; robustness.
+
+
+
+1. Introduction: complexity under constraint
+A central challenge across both biological organization and engineered technology is how finite resources sustain
+diverse, reliable, and coordinated behavior. In a computer, constraints include logic gates, core memory, execution
+cycles, and energy. In an organism, constraints include molecular synthesis, cellular bioenergetics, developmental
+timing, and reproductive fitness. Sharing a class of architectural trade-offs does not imply a shared origin:
+engineered systems reflect intentional design under explicit specifications, whereas biological architectures arise
+through mutation, selection, genetic drift, and historical contingency [20–24]. Throughout this manuscript, the
+correspondence between computing and genomics is treated strictly as functional and analytical—not as a claim
+of implementation identity, optimality, or literal software execution in cells.
+
+
+                                                                                        Preprint candidate (v6) • Page 1
+
+<PARSED TEXT FOR PAGE: 2 / 21>
+
+ARCHITECTURAL ECONOMY / HYPOTHESIS & COMPUTATIONAL STUDY
+
+
+
+Our central thesis is that both biological organization and emerging technologies face pressure to achieve
+functional diversity with economical use of resources. Architecture—the organization, composition, reuse and
+coordination of components—mediates that objective. Reuse expands functionality without a proportional
+increase in machinery, but concentrates dependencies. Redundancy can protect these dependencies, yet its
+coordinating mechanisms can themselves become critical failure points. This nested trade-off, rather than simple
+minimization of components, is the organizing principle of this article. A further question is whether functional
+architecture persists as its implementation changes. This distinction links the historical PDP-8 example to the
+interpretation of our genomic pilot. A molecular entry point is the existence of alternative sequences that satisfy
+the same measurable functional requirements; Sections 7.2–7.3 develop a test of this proposition.
+
+Only a small fraction of the human genome encodes protein sequence. The remainder comprises cis-regulatory
+elements, noncoding RNA genes, introns, repetitive DNA, and sequences with no established organism-level
+function. While the ENCODE project cataloged widespread biochemical activity across the genome [1], biochemical
+detection is not equivalent to evolutionary necessity or causal phenotype [2], and estimates of sequence constraint
+depend on evolutionary timescale and neutral background models [3,4]. Distinguishing between specifying
+molecular components and coordinating their deployment (timing, localization, and magnitude of expression)
+provides a structured entry point for asking why particular noncoding regions experience strong purifying
+selection—while acknowledging that protein-coding genes also encode regulatory machinery and that large
+fractions of noncoding DNA are non-regulatory.
+
+
+
+2. The PDP-8 as a case study in architectural economy
+Introduced in 1965, Digital Equipment Corporation’s PDP-8 combined a 12-bit word, a base 4,096-word core
+memory, a single accumulator (AC), a 1-bit link register (L), and eight primary opcode classes (AND, TAD, ISZ,
+DCA, JMS, JMP, IOT, and OPR) [25,26]. Its OPR class combined compatible microoperations within a single
+instruction word, while complex arithmetic—including multiplication and division, which the base hardware
+lacked—was constructed from sequences of elementary instructions and reusable subroutines (Figure 1). That
+compactness enabled a general-purpose minicomputer at a fraction of contemporary hardware cost, though
+economy in one resource frequently shifts cost into another: fewer hardware opcodes increase software length,
+execution cycles, and programmer effort.
+
+
+
+
+Figure 1. PDP-8 architectural economy. Simplified stored-program architecture showing the base 4,096-word core memory
+configuration, single-accumulator processor, peripheral interface, and eight primary opcode classes [25,26]. AI-assisted illustration;
+conceptual schematic, not measured data.
+
+The PDP-8 family also demonstrates how a stable architectural interface can outlast individual implementations.
+The transistor-based PDP-8, the TTL integrated-circuit PDP-8/I and the MSI-based PDP-8/E retained a compatible
+core instruction architecture [25,26,36]. Programs depending on that interface could be reused, although
+peripheral-specific software, timing assumptions and extensions could require changes. In biology, conserved core
+cellular processes and regulatory rewiring [20] suggest a comparable distinction between a function and its
+
+
+                                                                                                        Preprint candidate (v6) • Page 2
+
+<PARSED TEXT FOR PAGE: 3 / 21>
+
+ARCHITECTURAL ECONOMY / HYPOTHESIS & COMPUTATIONAL STUDY
+
+
+
+implementation. The analogy concerns continuity of behavior, not a literal hardware/software partition in cells
+(Table 1).
+
+ Architectural principle                      PDP-8 / computing                           Biological candidate
+
+ Primitive reuse                              Arithmetic & logic microoperations          Conserved core molecular machinery
+
+ Composition                                  Instruction sequences & subroutines         Combinatorial cis-regulatory inputs &
+                                                                                          pathways
+
+ Modular control                              Program modules & stable interfaces         Regulatory subcircuits & cell-state
+                                                                                          modules
+
+ Shared dependencies                          Shared subroutines & common interfaces      Pleiotropic regulators & developmental
+                                                                                          kernels
+
+ Fault tolerance                              Modular duplication & redundant voting      Shadow/overlapping enhancers &
+                                                                                          feedback loops
+
+
+Table 1. Functional analogies across engineered and biological control architectures; physical substrates and
+evolutionary/design origins differ.
+
+Compositional economy is illustrated by a Hilbert curve (Figure 1a). A compact recursive rule produces 4ⁿ − 1
+segments at order n: 3, 15 and 255 at orders 1, 2 and 4. The figure demonstrates generative complexity without
+proportionally increasing the number of primitives. It is a mathematical illustration, not a claim that genomic
+development executes sequential recursion.
+
+
+
+
+Figure 1a. Emergent complexity from a compact recursive rule. Original schematic of orders 1, 2 and 4; the number of segments is 4ⁿ −
+1. The curve illustrates composition rather than a literal mechanism of developmental regulation. AI-assisted illustration; conceptual
+schematic, not measured data.
+
+
+
+3. Architectural economy as a general systems principle
+Herbert Simon’s analysis of hierarchical, nearly decomposable systems [27] provides the theoretical bridge
+between the PDP-8 and the genome. Hierarchies make complex organization tractable when interactions within
+modules are stronger than interactions across modules. Kirschner and Gerhart’s conserved, versatile core
+processes [20] suggest how biological diversity arises through regulatory recombination. Kitano’s framework [21]
+emphasizes robustness trade-offs, and Castle et al. [22] connect evolvability to engineering design. Architectural
+economy integrates these perspectives: economy is a property of an arrangement of dependencies, not simply a
+count of parts.
+
+We define architectural economy operationally as achieving a specified portfolio of functions and minimum
+reliability within a domain-specific resource budget. Relevant costs cannot be equated numerically across
+domains: logic gates, memory words, execution cycles, and power in a processor differ fundamentally from
+
+
+                                                                                                      Preprint candidate (v6) • Page 3
+
+<PARSED TEXT FOR PAGE: 4 / 21>
+
+ARCHITECTURAL ECONOMY / HYPOTHESIS & COMPUTATIONAL STUDY
+
+
+
+molecular synthesis, expression burden, developmental time, and fitness costs in an organism. Furthermore, a
+system economical in one resource may be expensive in another: redundancy raises static component cost but
+lowers expected failure cost, and neutral or weakly deleterious sequences readily persist in multicellular genomes
+whenever population-genetic drift overwhelms weak purifying selection [23,24].
+
+Compare architectures that realize a matched functional portfolio using a cost vector (static resources, dynamic
+operation, and reliability loss), rather than a single universal currency. An architecture Pareto-dominates another
+when it is no worse on every chosen metric and strictly better on at least one. A reused component increases the
+number of outputs that may be exposed to one fault; the magnitude depends on the actual function, context,
+redundancy and fault distribution. The proposed biological counterpart concerns fitness-relevant perturbations,
+not the assumption that all mutations are loss-of-function events.
+
+
+
+4. Molecular implementation of economical coordination
+Yan et al. compared the transcriptional regulatory network of Escherichia coli with the Linux kernel function-call
+graph [5] and revealed a striking topological contrast: software call graphs rely heavily on fan-in (many high-
+level callers invoking reusable low-level subroutines), whereas bacterial transcriptional networks exhibit
+pronounced fan-out (relatively few regulators controlling many downstream targets) (Figure 2). Rather than
+invalidating the architectural comparison, this contrast sharpens it: both fan-in (shared subroutines) and fan-out
+(shared regulators) create high-leverage single points of failure whose disruption propagates across many
+outputs. In Section 6.1, we test both regimes directly—fan-out in synthetic combinatorial networks and fan-in in a
+PDP-8 subroutine benchmark.
+
+
+
+
+Figure 2. Contrasting control-network hierarchies. Stylized fan-out in bacterial transcriptional regulation and fan-in in software
+function calls, redrawn from Yan et al. [5]; node counts and edges are illustrative rather than empirical data. AI-assisted illustration;
+conceptual schematic, not measured data.
+
+Closer mechanistic grounding comes from experimentally reconstructed developmental gene regulatory networks
+(GRNs), notably in sea urchin embryos, where cis-regulatory modules integrate signaling and transcription-factor
+inputs into cell-fate commitments [6–8]. Four interacting molecular layers implement economical, distributed
+coordination:
+
+4.1 Sequence-specific combinatorial logic
+Transcription factors recognize degenerate DNA motifs in enhancers, promoters, and silencers, integrating
+activating and repressing signals in a context-dependent manner [7–9] (Figure 3). Unlike idealized Boolean logic
+gates, cis-regulatory responses are graded, concentration-dependent, stochastic, and sensitive to binding-site
+syntax and chromatin kinetics. Crucially, the same transcription factor acts across thousands of loci, and a single
+enhancer can operate across multiple tissues or developmental stages.
+
+
+
+
+                                                                                                         Preprint candidate (v6) • Page 4
+
+<PARSED TEXT FOR PAGE: 5 / 21>
+
+ARCHITECTURAL ECONOMY / HYPOTHESIS & COMPUTATIONAL STUDY
+
+
+
+
+Figure 3. Combinatorial regulation as molecular logic. Idealized AND–NOT integration illustrating multi-input cis-regulatory
+computation [7–9]; actual molecular responses are graded and context-dependent. AI-assisted illustration; conceptual schematic, not
+measured data.
+
+4.2 Spatial organization and dynamic connectivity
+Three-dimensional chromatin folding—shaped in part by CTCF and cohesin-mediated loop extrusion [10,11]—
+modulates contact probabilities between distal enhancers and target promoters (Figure 4). Because acute cohesin
+depletion eliminates loop domains without uniformly abolishing transcription [11], 3D topology acts as a
+quantitative, context-sensitive constraint rather than a rigid wiring harness. Combining enhancer biochemical
+activity with physical contact frequency yields strong predictive models of enhancer–promoter regulation [12].
+
+
+
+
+Figure 4. Spatial organization of regulatory interactions. Chromatin looping brings a distal enhancer and target promoter into three-
+dimensional proximity [10–12]; physical contact alone does not guarantee transcriptional activation. AI-assisted illustration;
+conceptual schematic, not measured data.
+
+4.3 RNA-mediated control and persistent regulatory state
+Long noncoding RNAs and chromatin modifiers establish persistent, context-specific regulatory states. For
+example, Xist recruits SHARP/HDAC3 silencing complexes across the inactive X chromosome [13], while DNA
+methylation, histone modifications, and chromatin accessibility stabilize cell-state memory [14]. These layers act
+jointly with protein and RNA machinery rather than constituting an autonomous “epigenetic code.”
+
+4.4 Distributed control, feedback, and redundancy
+Biological regulation operates through coupled local processes rather than a central supervisory kernel (Figure 5).
+Feedback and feedforward motifs shape response dynamics and noise filtering [15]—for example, Hes7-mediated
+negative feedback drives vertebrate segmentation-clock oscillations [16]—while overlapping (“shadow”)
+enhancers buffer developmental phenotypes against single-element perturbations [17].
+
+
+
+
+                                                                                                      Preprint candidate (v6) • Page 5
+
+<PARSED TEXT FOR PAGE: 6 / 21>
+
+ARCHITECTURAL ECONOMY / HYPOTHESIS & COMPUTATIONAL STUDY
+
+
+
+
+Figure 5. Distributed regulatory control. Coupled interactions among regulatory DNA sequences, chromatin/RNA state, execution
+machinery, and cellular feedback [5–17]. AI-assisted illustration; conceptual schematic, not measured data.
+
+Together, these mechanisms represent competing architectural strategies: shared regulators minimize distinct
+molecular machinery, modular enhancers allow context-specific deployment, and shadow enhancers add fault
+tolerance at the cost of extra regulatory DNA and coordination complexity.
+
+
+
+5. Conservation of components versus conservation of coordination
+Comparative genomics demonstrates substantial purifying selection outside protein-coding exons. Bejerano et al.
+identified 481 ultraconserved elements (at least 200 bp identical across human, mouse and rat), many noncoding
+[18]. The Zoonomia 240-mammal analysis estimated that at least 332 million human bases (approximately 10.7%)
+are unusually conserved and identified 4,552 nearly perfectly conserved elements [4]. Coding sequence is
+generally more constrained per nucleotide; the large quantity of noncoding sequence means many constrained
+bases are noncoding. Deleting selected ultraconserved enhancers near Arx produces viable mice with neurological
+and developmental abnormalities [19], establishing contributions to normal development for those elements, not
+universal essentiality.
+
+Two established lines of work already connect regulatory architecture to conservation: 1. Developmental
+regulatory kernels: Davidson and Erwin proposed that deeply conserved subcircuits (“kernels”) resist
+evolutionary rewiring because their internal wiring underpins body-plan specification [28]. 2. Enhancer
+pleiotropy: Singh and Yi demonstrated that human enhancers active across multiple tissues and linked to more
+target genes exhibit stronger sequence conservation [29].
+
+The open question addressed here is narrower: does higher-order downstream coordination, moderated by local
+buffering, explain additional variation in sequence constraint beyond conventional enhancer pleiotropy? (Figure
+6). A single-context test cannot separate gene-level reach from invariant target-gene identity; a multi-context
+design is needed for that contrast.
+
+
+
+
+                                                                                                  Preprint candidate (v6) • Page 6
+
+<PARSED TEXT FOR PAGE: 7 / 21>
+
+ARCHITECTURAL ECONOMY / HYPOTHESIS & COMPUTATIONAL STUDY
+
+
+
+
+Figure 6. Conservation of coordination versus components. A functionally compatible module substitution (A) preserves system
+output, whereas disruption of a shared upstream regulator (B) places multiple downstream modules at risk [20,28,29]. AI-assisted
+illustration; conceptual schematic, not measured data.
+
+We formalize two distinct, separately falsifiable hypotheses:
+
+        H1 (architectural economy): Reuse of composable operations can reduce static implementation cost
+         relative to functionally equivalent dedicated designs, while increasing shared fault exposure. Modularity
+         and targeted redundancy can reduce exposure; the resulting architecture must be evaluated against the
+         additional cost and vulnerability of its coordinating machinery.
+        H2 (coordination-constraint): Within a defined class of functional noncoding elements, broad, weakly
+         buffered higher-order downstream coordination predicts greater sequence constraint after controlling for
+         sequence context, enhancer activity breadth, direct target count and invariant target-gene properties.
+         This is a prediction about associations under a specified empirical design, not evidence that all noncoding
+         DNA is functional.
+
+
+6. Computational benchmarks and genomic investigation
+We separate the general systems hypothesis (H1), examined in controlled computational models, from the
+comparative-genomic hypothesis (H2), examined provisionally using public data and a proposed more complete
+protocol.
+
+6.1 Controlled computational benchmarks (testing H1)
+Two Python benchmarks examine fan-out (regulatory-like reuse) and fan-in (subroutine-like reuse). The v2
+implementation and archived JSON data are retained; a separate audit program in audit/reproduce_audit.py
+extends functional testing, measures executable capacity, and tests other tracked instructions. All numerical
+results are conditional on the stated workloads, architectures and fault models.
+
+Benchmark A: Synthetic multi-output combinatorial networks (fan-out regime)
+
+Matched portfolios contain K = 4, 8, 12, 16, 24 or 32 outputs over 12 binary inputs; 30 seeded portfolios per K were
+evaluated on 256 sampled states. Each output integrates two three-input motifs sampled from a Zipf-distributed
+library of 16 primitives. Four architectures implement the same portfolio: dedicated private motifs; fully shared
+motifs; modular sharing with fan-out capped at four; and modular sharing with disjunctive shadow copies for
+motifs serving at least two outputs. Activation cost counts active modeled internal nodes, not biological energy or
+gate-level circuit cost. The loss-of-function model forces a motif or output-integrator node to zero; blast radius
+counts outputs changed on at least one test input.
+
+
+
+
+                                                                                                    Preprint candidate (v6) • Page 7
+
+<PARSED TEXT FOR PAGE: 8 / 21>
+
+ARCHITECTURAL ECONOMY / HYPOTHESIS & COMPUTATIONAL STUDY
+
+
+
+ Architect
+ ure (K =
+ 32; 30                                                          Mean motif       Mean max         Motif-KO         Zero motif
+ seeds)          Distinct         Directed      Active nodes     blast            motif blast      accuracy         blast
+                  nodes            edges           / eval
+
+ Dedicate        96.0 ± 0.0      256.0 ± 0.0      23.77 ± 1.49     0.96 ± 0.02      1.00 ± 0.00       99.58%            3.9%
+ d (no
+ reuse)
+
+ Shared          47.1 ± 1.0      109.3 ± 3.1      12.61 ± 0.89     4.08 ± 0.27      13.63 ± 1.85      98.23%            0.9%
+ reusable
+
+ Modular         54.4 ± 1.4       131.2 ± 4.1     14.33 ± 0.96     2.75 ± 0.17      4.00 ± 0.00       98.81%            0.9%
+ shared (
+ d max =4 )
+
+ Modular         72.4 ± 2.0      244.9 ± 7.8     18.40 ± 1.24      0.10 ± 0.04     1.00 ± 0.00        99.96%           89.6%
+ +
+ buffered
+
+
+Table 2. Synthetic networks at K = 32 (mean ± SD across 30 seeds). Fault metrics here refer to motif-node
+knockouts only. All-node measures are reported separately below.
+
+At K = 32, full sharing reduces nodes by 50.9%, edges by 57.3% and modeled activation cost by 46.9%, but raises
+mean motif-fault impact 4.3-fold. The mean across seeds of maximum motif-fault impact rises from 1.00 to 13.63
+outputs; bounded fan-out limits it to 4.00. Buffered modular networks require 24.6% fewer nodes and 22.6%
+lower activation cost than the dedicated baseline, and have a lower mean motif-fault blast radius (0.10 versus
+0.96). The maximum is tied at 1.00; buffering therefore Pareto-dominates on the reported aggregate metrics,
+rather than strictly improving every metric. A broader fault model including output integrators yields the more
+modest, but still favorable, comparison in Table 2a.
+
+
+
+
+Figure 7. Controlled synthetic network comparison (30 seeds; K = 4–32). Panel C shows the cost–vulnerability plane at K = 32. Only
+modeled motif faults are represented; the shaded region denotes improvement over the dedicated baseline on the plotted metrics. AI-
+assisted illustration; derived from archived simulation/audit data.
+
+
+
+
+                                                                                                    Preprint candidate (v6) • Page 8
+
+<PARSED TEXT FOR PAGE: 9 / 21>
+
+ARCHITECTURAL ECONOMY / HYPOTHESIS & COMPUTATIONAL STUDY
+
+
+
+Table 2a. Extended interpretation of the archived K = 32 synthetic-network results. Mean output blast radii across
+motif nodes alone and all modeled internal nodes (including output integrators).
+
+ Architecture                            Motif-node faults                         All internal-node faults
+ Dedicated                               0.962                                     0.963
+ Shared                                  4.085                                     1.962
+ Modular shared                          2.753                                     1.699
+ Modular + buffered                      0.104                                     0.485
+
+Sensitivity to model architecture. A further sweep uses 30 seeds in each of 16 combinations of motif library size (8,
+16, 32, 64) and Zipf exponent (0, 0.8, 1.2, 2), evaluating all 4,096 states at K = 32. Sharing saves 24.9–59.1% of nodes
+while increasing mean motif-fault impact 1.60–8.99-fold. This is partly a structural consequence of fan-out, not a
+surprising independent biological discovery. Explicitly modeling the shared OR gates that coordinate backup
+motifs as separate fault sites eliminates the simultaneous improvement in node count and mean all-site
+disruption relative to dedicated circuits in every configuration average. This result bounds the earlier buffering
+claim and supports the need to count coordinating machinery itself (sensitivity_v31.py; sensitivity_v31.json).
+
+Benchmark B: 12-bit DEC PDP-8 instruction-level model (fan-in regime)
+
+The PDP-8 model implements the memory-reference instructions and OPR subset needed for the benchmark,
+4,096-word core memory, page-zero/current-page addressing, indirect addressing and auto-index registers. IOT is
+a placeholder NOP; interrupts, peripheral timing and other processor features are not fully modeled. The model
+counts memory cycles for its implemented instruction subset; no claim of complete hardware or cycle fidelity is
+made. Six-bit unsigned shift-and-add multiplication workloads contain N = 1, 2, 4, 8, 16, 32 or 64 tasks. Four
+implementations are compared: inlined, single JMS subroutine, dual modular subroutines, and redundant
+comparison/fallback (two primary routines; a third on mismatch). One routine word at a time is replaced with
+NOP. Non-timeout faults and all routine faults are reported separately; a timeout is an operational failure, not
+proof of an infinite loop.
+
+                                  Code-space      Modeled                                  All routine
+ Architectu                       estimate        memory              Non-timeout          faults: mean      Non-timeout
+ re (N = 64)    Code words (%     (tasks)         cycles              routine blast        blast             masking
+                   4K core)
+
+ Inlined          1,631 (39.8%)        92               8,868              0.93                 5.91               7.3%
+ (dedicated)
+
+ Shared           477 (11.6%)          388          9,228 (+4.1%)          55.82               57.38               11.8%
+ subroutine
+ (JMS)
+
+ Dual-            501 (12.2%)          385          9,230 (+4.1%)          28.94               34.69               11.4%
+ modular
+ (2× MUL)
+
+ Buffered         551 (13.5%)          378         19,731 (+122.5%)        2.25                 8.13              96.5%
+ TMR (3×
+ MUL)
+
+
+Table 3. PDP-8 benchmark at N = 64. Code-space estimates are theoretical and do not demonstrate executable task
+capacity. All-fault columns refer to the enumerated routine words, not every program or machine fault.
+
+Shared JMS subroutines reduce the code footprint by 70.8% (1,631 to 477 words) at +4.1% modeled memory cycles
+(8,868 to 9,228). Mean non-timeout routine-fault blast radius increases from 0.93 to 55.82 tasks. Dual modularity
+adds 24 code words and reduces this value to 28.94. Redundant comparison/fallback reduces it to 2.25 and masks
+
+                                                                                                Preprint candidate (v6) • Page 9
+
+<PARSED TEXT FOR PAGE: 10 / 21>
+
+ARCHITECTURAL ECONOMY / HYPOTHESIS & COMPUTATIONAL STUDY
+
+
+
+96.5% of non-timeout routine faults, at 2.14 times the shared implementation’s modeled cycles (2.225 times
+inlining). Across all routine faults, including timeouts, the redundant implementation averages 8.13 disrupted
+tasks versus 5.91 for inlining. Thus redundancy improves one conditional fault metric but is not universally more
+robust. The serial program counter and shared wrapper create failure dependencies distinct from a distributed
+biological network.
+
+
+
+
+Figure 8. PDP-8 instruction-level benchmark for N = 1–64 shift-and-add multiplication tasks. Panel C shows the trade-off at N = 64
+among static code memory, modeled memory cycles and non-timeout routine-fault blast radius. AI-assisted illustration; derived from
+archived simulation/audit data.
+
+
+
+6.1.1 Independent implementation audit and coordination liability
+The v3 audit (audit/reproduce_audit.py; results/independent_audit.json) exhaustively tests the 64 × 64 six-bit
+operand pairs in each architecture, in batches of 64, for 16,384 correct products in total. Across six network sizes
+and 30 seeds, each of three reused architectures was also compared against dedicated circuits on every one of the
+4,096 binary input states: 540 comparisons with zero output-bit mismatches. This verifies functional equivalence
+for the modeled workloads, not complete CPU fidelity or biological validity.
+
+The code-space estimates (92, 388, 385 and 378 tasks) are limited by the actual fixed operand/result layout, which
+reserves 128 entries per table. With the deterministic capacity workload in the audit, the longest consecutive
+successful runs were 92 tasks inlined and 128 in each reused architecture. At task 129 the reused designs exhibit
+output errors; the estimate of 388 tasks therefore cannot be presented as demonstrated workload capacity.
+
+Table 3a. Expanded fault audit at N = 64. Mean disrupted tasks per NOP injection, including timeouts, and number
+of tested routine and other tracked instruction sites. Faults in untracked page transitions, final halt, data memory
+and physical hardware remain excluded.
+
+ Architecture              Working tasks             Routine mean (n)          Other mean (n)            Timeouts R/O
+ Inlined                   92                        5.91 (1216)               16.58 (384)               192 / 0
+ Shared                    128                       57.38 (21)                14.36 (448)               4/0
+ Dual modular              128                       34.69 (42)                14.36 (448)               7/0
+ Redundant fallback        128                       8.13 (63)                 13.68 (475)               6/0
+
+The wider audit reveals a second-order architectural trade-off: protective coordination can itself be vulnerable.
+Other tracked instructions include input/output handling and the redundant comparison wrapper, so their
+impact cannot be attributed exclusively to the wrapper. A future analysis should stratify fault sites by role,
+distinguish missing outputs from incorrect outputs, include stuck-on and correlated failures, and report
+uncertainty under multiple operand sets and workloads. The present metric uses zero-initialized outputs and a
+minimum of one affected task on timeout; noncompletion and incorrect numerical output must be separately
+recorded in subsequent work.
+
+                                                                                                  Preprint candidate (v6) • Page 10
+
+<PARSED TEXT FOR PAGE: 11 / 21>
+
+ARCHITECTURAL ECONOMY / HYPOTHESIS & COMPUTATIONAL STUDY
+
+
+
+Pooling the enumerated routine and other tracked sites with equal weight per site changes the ranking (Figure 9):
+mean disruption is 8.47 tasks for inlining, 16.28 for sharing, 16.10 for dual modularity and 13.03 for redundant
+fallback. These are descriptive averages under a deliberately limited uniform site-injection model, not field failure
+probabilities. The redundant design remains more economical in code than inlining but is not more reliable on
+this pooled metric. This negative result is central to the argument: a protection architecture must be evaluated
+together with its coordination overhead.
+
+
+
+
+Figure 9. Sensitivity of PDP-8 fault results to the scope of injection. A: separate mean impacts for enumerated routine words and other
+tracked executable words. B: pooled mean, weighting each tested site equally. Timeouts included; data-memory faults and untracked
+instructions excluded. Derived from results/independent_audit.json. AI-assisted illustration; derived from archived simulation/audit
+data.
+
+6.2 Comparative genomics: proposed confirmatory design
+Testing H2 requires separating higher-order downstream coordination from two major confounders: (1)
+conventional enhancer pleiotropy (tissue breadth and direct target count) and (2) direct target-gene identity
+(an enhancer linked to a master developmental transcription factor automatically inherits its target gene’s broad
+downstream network unless target-gene properties are rigorously controlled).
+
+Operational variable definitions (strictly conservation-free predictors)
+
+Represent each cellular or developmental context c as a directed, weighted regulatory graph G ( c ) linking
+candidate enhancers e to direct target genes g (via CRISPRi perturbations or Activity-by-Contact [ABC] scores
+[12]) and linking target genes g to downstream transcriptional modules (via independent Perturb-seq /
+experimental TF-target regulons, never using sequence-conservation features to define edges or modules). For
+each noncoding candidate enhancer e mapped to primary target gene g( e ):
+
+        B ( e ) — Context-specific higher-order downstream reach: Number of distinct downstream co-
+         expression or Perturb-seq functional modules reachable in ≥ 2 hops from e through its direct target(s)
+         within the specific contexts c where e is active, subject to prespecified edge-confidence and path-length
+         thresholds.
+        T ( e ) — Enhancer activity breadth (pleiotropy baseline): Number of distinct biosamples or cell
+         states in which e exhibits active enhancer chromatin state (e.g., ENCODE cCRE / DNase + H3K27ac [14]).
+         To avoid collinearity, activity breadth enters exclusively as T ( e ) and is not duplicated inside covariate
+         vector Z .
+        R(e) — Local buffering: primary measure should be independently estimated co-active alternate-
+         enhancer capacity, ideally functional attenuation from matched single and combined perturbations. Raw
+         (unnormalized) activity × contact for alternate elements can serve as a secondary proxy [12,17].
+
+                                                                                                      Preprint candidate (v6) • Page 11
+
+<PARSED TEXT FOR PAGE: 12 / 21>
+
+ARCHITECTURAL ECONOMY / HYPOTHESIS & COMPUTATIONAL STUDY
+
+
+
+         Normalized ABC scores sum to a constrained denominator; the sum of the other scores can be
+         approximately 1 − ABC(e), so it is not an independent demonstration of redundancy. Report that proxy as
+         a sensitivity analysis only and distinguish compensatory from additive effects.
+        Z elem ( e ) — Element-level baseline covariates: Element length, local neutral substitution rate, GC
+         content, mappability/alignment quality, peak chromatin accessibility/H3K27ac signal, linear distance to
+         promoter, and direct target-gene count.
+        Z gene ( g ) — Target-gene covariates: Target-gene coding constraint (e.g., gnomAD LOEUF/pLI),
+         transcription-factor status, gene expression breadth across tissues, and gene-level network centrality.
+Statistical models: global and within-target-gene specifications
+
+We specify two complementary statistical models (proposed statistical frameworks, not biological laws):
+
+    1.   Global hierarchical model:
+
+Constraint ( e )=α + β 1 B ( e )+ β 2 T ( e )+ β 3 R ( e )+ β 4 B ( e ) R ( e )+γ 1 ⋅ Z elem ( e )+γ 2 ⋅ Z gene ( g( e ))+u g( e ) +ε ( e )
+
+         where u g( e ) is a target-gene random intercept accounting for correlated enhancers sharing the same
+         promoter.
+
+    2.   Within-target-gene fixed-effects (paired-enhancer) model:
+
+           Constraint ( e )=α g( e ) + β 1 B ( e )+ β 2 T ( e )+ β 3 R ( e )+ β 4 B ( e ) R ( e )+γ 1 ⋅ Z elem ( e )+ε ( e )
+
+         Restricting to target genes with ≥ 2 mapped enhancers across contexts, the gene fixed effect α g( e ) absorbs
+         all invariant properties of target gene g (TF status, essentiality, global coding constraint). This design
+         directly tests whether an enhancer activating gene g in a higher-cascade, weakly buffered context is
+         more evolutionarily constrained than another enhancer driving the exact same gene g in a narrower or
+         more redundantly buffered context.
+
+Data sources, leakage prevention, and nested validation
+        Datasets: Zoonomia 240-mammal phyloP constraint scores [4] as outcome; ENCODE cCREs and cell-state
+         annotations [14]; enhancer–gene maps from CRISPRi perturbation compendia and ABC models [12].
+        Strict controls: Restrict initial analysis to one genome assembly (GRCh38) and well-characterized
+         perturbation-rich contexts (e.g., K562, plus matched developmental lineages as Perturb-seq/ABC maps
+         permit). Exclude all exonic and splice-site overlaps; analyze promoters and distal enhancers separately.
+         Never use conservation-derived features when constructing G ( c ), B ( e ), or R ( e ).
+        Nested model ladder: evaluate global absolute predictions on held-out chromosomes and within-target-
+         gene contrasts separately. Train-fold-only preprocessing, prespecified thresholds and spatially aware
+         uncertainty estimation are required:
+             o M0: Z elem ( e ) (sequence & genomic context baseline)
+              o    M1: M0 + T ( e ) + Z gene ( g( e )) (conventional pleiotropy + target-gene properties)
+              o    M1b: M0 + T ( e ) + α g( e ) (within-target-gene fixed-effects baseline)
+              o M2: M1 / M1b + B ( e )+ R ( e )+ B ( e ) R ( e ) (higher-order reach and buffering)
+        Secondary functional outcome: Where large-scale CRISPRi Perturb-seq data exist, evaluate the
+         magnitude and breadth of downstream transcriptional disturbance directly as an outcome independent
+         of evolutionary conservation.
+
+
+Validation clarification. The v3 implementation (genomics/validation_v3.py) fits scaling on training chromosomes
+only. Global held-out predictions are absolute; gene-centered predictions on held-out groups are evaluated only
+against observed within-gene contrasts. A fixed effect for an unseen gene cannot be estimated without additional
+
+                                                                                                      Preprint candidate (v6) • Page 12
+
+<PARSED TEXT FOR PAGE: 13 / 21>
+
+ARCHITECTURAL ECONOMY / HYPOTHESIS & COMPUTATIONAL STUDY
+
+
+
+information. For inference, report gene-cluster and genomic-block sensitivity analyses, refitting the estimator
+within each resample rather than reusing a globally transformed design. Quantify how much B and R vary within
+each gene across contexts; if variation is insufficient, the within-gene test is unidentified. K562 is a cancer-derived
+line and must not be treated as representative of mammalian development; validate across matched
+developmental contexts when possible. Perturb-seq [30] supplies a candidate perturbational data source; it does
+not itself establish H2.
+
+Synthetic software check. The v3 validation script reproduces the intended distinction in two artificial fixtures
+(1,189 enhancers each): within-gene contrast MSE changes from 0.4435 to 0.4468 when no coordination effect is
+simulated, and from 0.5909 to 0.4561 when a coordination effect is simulated. These are software checks, not
+evidence about real enhancers. Section 6.3 reports the first exploratory application to real measurements.
+
+6.3 Exploratory genomic pilot: observed results
+Data and cohort construction
+
+The pilot joins the K562-Roadmap subset of the thresholded ABC atlas (score ≥ 0.015) [31] to selected annotated
+Perturb-seq profiles [30,32]. The reported count of differentially expressed genes after gene knockdown is a proxy
+for downstream reach (B), not a mapped causal cascade or enhancer-specific perturbation. Ambiguous gene
+identifiers and tied primary-target scores are excluded. The highest-scoring eligible distal target is assigned to
+each ABC-labeled intergenic interval at least 2 kb from its assigned TSS. This produces 695 autosomal intervals
+before conservation is examined. Independent exon/promoter exclusion is not yet verified.
+
+The hg19 intervals were converted locally to hg38 with CrossMap using an hg19-to-hg38 chain. Split, duplicate or
+length-changing mappings were excluded. Of 695 original IDs, 694 match the corrected BED and conservation TSV
+uniquely; 693 changed coordinates and 694 retain their original length. One interval has no score coverage, leaving
+693 fully covered regions. The outcome is the mean phyloP over covered bases from the UCSC Zoonomia 241-way
+track [33]. The supplied mapping and score arithmetic were checked internally; independent chain and BigWig re-
+extraction remains necessary. An earlier extraction using unconverted coordinates was invalid and is excluded
+entirely.
+
+Analysis
+
+Complete-case analysis retains 636 regions, 408 target genes, 22 autosomes. We fit ordinary least squares with
+target-gene-clustered standard errors. B is log(1 + reported DE count); R is log(1 + summed raw ABC activity–
+contact numerators of other thresholded distal links to the same gene). R is a provisional alternate-enhancer
+proxy, not measured redundancy. Seven baseline covariates are log-transformed region length, distance, focal
+activity, direct target count, perturbed cell count and UMI count, plus residual expression. Predictors are
+standardized, and the interaction is the product of standardized B and R. Leave-one-chromosome-out prediction
+fits preprocessing using training chromosomes only. No preregistration, formal power calculation or correction
+for multiple exploratory tests was conducted.
+
+Cohort flow: 695 original intervals; 694 unique mapped; 693 fully covered; 636 complete cases. The unadjusted and
+adjusted models use the same complete-case sample. The selection of annotated profiles and thresholded ABC
+links limits generalizability.
+
+Pilot results and interpretation
+
+Neither the unadjusted nor adjusted reach coefficient is positive; the interaction has the opposite sign from the
+predicted attenuation. All four intervals include zero (Figure 10). The full-model reach coefficient is −0.0251 (95%
+CI −0.0955 to 0.0452; p = 0.483). Excluding the one unchanged mapped region does not change the conclusion.
+
+
+
+
+                                                                                          Preprint candidate (v6) • Page 13
+
+<PARSED TEXT FOR PAGE: 14 / 21>
+
+ARCHITECTURAL ECONOMY / HYPOTHESIS & COMPUTATIONAL STUDY
+
+
+
+
+Figure 10. Exploratory genomic pilot, gene-clustered OLS (95% confidence intervals). Generated directly from the
+archived corrected results.json. Adjusted reach excludes the interaction; buffering and interaction are from the
+full model. This plot is observational, not a causal estimate.
+
+Leave-one-chromosome-out mean squared error is 0.4332 for the baseline, 0.4356 with reach and 0.4390 with
+reach, buffering and their interaction. Thus the proposed predictors do not improve held-out prediction in this
+sample. Within-gene reach is invariant in a single context, so its main effect is not identifiable. Among 379 regions
+for 151 genes, the within-gene buffering coefficient is −0.398 (p = 0.046), but reverses to +0.704 (p = 0.129) when
+the focal raw ABC numerator is included. This exploratory sensitivity undermines a robust buffering
+interpretation.
+
+The pilot does not support H2 as operationalized. It lacks measured cross-context breadth, independent target
+expression and LOEUF, GC, local neutral substitution rates, independent overlap annotation and spatially robust
+uncertainty. K562 is a transformed cell line; selected DE counts and truncated ABC links are incomplete proxies.
+Gene knockdown can affect cell state, viability or stress without reflecting the fitness cost of a single enhancer
+mutation. The null association does not establish equivalence or disprove the broader architectural hypothesis.
+
+6.4 Predictions and falsification criteria
+     P1 (supported within the computational models): Reuse reduces static implementation costs and
+        amplifies selected shared-component perturbation impacts. Modularity and redundancy can reduce those
+        impacts, but their relative benefit depends on the fault model and explicit cost of coordination.
+     P2 (not supported by the exploratory pilot): Higher-order downstream reach predicts stronger sequence
+        constraint, with an attenuating buffering interaction after relevant covariate control. Test the reach main
+        effect between genes in single-context data; within-gene estimation requires genuinely context-varying
+        reach.
+     P3 (Perturbation signature): Matched high-reach, low-buffering enhancers produce broader
+        downstream transcriptional disturbances upon CRISPRi perturbation than low-reach or strongly buffered
+        enhancers of comparable activity.
+     P4 (out-of-sample predictive gain): Global M2 improves absolute outcome prediction over global M1 on
+        held-out chromosomes; within-gene M2b improves within-gene contrast prediction over M1b. The second
+        task does not predict an unseen gene intercept. Report performance and uncertainty separately across
+        sensitivity checks.
+
+A sufficiently precise null or opposite association in a well-powered, appropriately measured test would count
+against H2; failure due to inadequate data coverage, poor proxy validity or lack of within-gene variation would
+remain inconclusive. The computational findings about H1 do not imply H2.
+
+
+
+
+                                                                                         Preprint candidate (v6) • Page 14
+
+<PARSED TEXT FOR PAGE: 15 / 21>
+
+ARCHITECTURAL ECONOMY / HYPOTHESIS & COMPUTATIONAL STUDY
+
+
+
+7. Limitations and alternative explanations
+Several biological and methodological factors constrain interpretation:
+
+    1.   Non-coordination drivers of sequence conservation: Evolutionary constraint reflects purifying
+         selection, local mutation-rate variation, and historical contingency. High noncoding conservation can
+         arise from overlapping RNA processing signals, dosage sensitivity, structural chromatin roles, or single
+         indispensable developmental transitions—none of which require broad multi-module reach.
+    2.   Binding-site turnover and sequence decoupling: compensatory changes can preserve enhancer output
+         despite changes to its sequence [34]; comparative mammalian studies document rapid enhancer activity
+         turnover [35]. Conserved coordination therefore need not imply conservation at the nucleotide level. This
+         provides an alternative explanation, not a demonstrated cause of our null result.
+    3.   Ascertainment bias and static graph limits: Well-studied developmental regulators appear artificially
+         central in incomplete perturbation networks. Moreover, topological reachability in a static graph
+         approximates—but does not replace—time-resolved dynamical sensitivity; quantitative Perturb-seq
+         effect sizes are essential complements.
+    4.   Non-universal buffering effects: Redundant (“shadow”) enhancers do not universally relax sequence
+         constraint; multiple enhancers often experience independent purifying selection because their buffering
+         roles diverge across environmental stresses or developmental temperatures [17].
+    5.   Population-genetic drift limits: weakly selected costs can be overwhelmed by drift, particularly in small
+         effective populations [23,24]. The relative evolutionary importance of extra nucleotides, expression costs
+         and developmental perturbation remains an empirical question; architecture may be economical along
+         some axes but not others.
+    6.   Structural limits of the computing analogy: As demonstrated directly in our PDP-8 fault-injection
+         benchmark, stored-program computers couple tasks through a shared sequential program counter ( PC)
+         and separate code from execution hardware. Genomes lack a central kernel, encode the very machinery
+         that reads them, and self-assemble from inherited cellular states.
+
+
+7.1 Functional continuity: a refined hypothesis (H3)
+The PDP-8 case distinguishes an invariant functional interface from changing physical implementations. Biology
+requires an analogous distinction among three independently measured quantities: (i) nucleotide sequence
+conservation, (ii) conservation of regulatory activity and (iii) conservation of coordinated network behavior.
+These need not covary. Selection acts through fitness consequences rather than a count of downstream
+transcripts; both indispensable local regulation and buffered widespread regulation are possible. The present
+K562 analysis measures sequence constraint, not functional continuity across species.
+
+Existing research establishes that such decoupling is biologically possible. Ludwig et al. showed compensatory
+evolution of a Drosophila enhancer [34], while Villar et al. documented widespread turnover of mammalian liver
+enhancer activity [35]. Domené et al. demonstrated that nonhomologous mammalian and fish regulatory elements
+can support conserved neuronal Pomc expression [37]. Berthelot et al. associated complex regulatory landscapes
+with evolutionary stability of mammalian gene expression [38]. These findings establish precedent, not novelty for
+the general idea of regulatory turnover. Our proposed contribution is to ask whether measured architectural
+dependency and buffering improve prediction of functional continuity beyond established regulatory and
+evolutionary predictors.
+
+H3 (functional continuity hypothesis). Among homologous biological modules compared in matched contexts,
+greater fitness-relevant coordination demands predict greater conservation of perturbational input–output
+behavior, after accounting for regulatory activity breadth, expression, essentiality and phylogeny. Molecular
+sequences and individual network edges may change while this behavior persists. The hypothesis does not require
+every important module to remain unchanged, nor does it assert that all sequence turnover preserves function.
+
+
+
+
+                                                                                       Preprint candidate (v6) • Page 15
+
+<PARSED TEXT FOR PAGE: 16 / 21>
+
+ARCHITECTURAL ECONOMY / HYPOTHESIS & COMPUTATIONAL STUDY
+
+
+
+
+Figure 11. Functional continuity despite implementation change. (A) A compatible PDP-8 instruction architecture permits reuse of
+compatible software across transistor and integrated-circuit implementations [25,26,36]. (B) A conceptual regulatory turnover
+trajectory in which a compensating element allows preservation of regulatory behavior [34,35,37,38]. Biological panel is an illustrative
+scenario, not observed data or evidence for H3.
+
+Proposed test. Define orthologous regulatory modules and matched species, tissues and developmental stages
+before inspecting outcomes. For each module, independently quantify baseline expression, regulator and enhancer
+activity, and responses to standardized perturbations. Compare response vectors across species using a
+prespecified similarity measure on orthologous outputs; require agreement in direction, magnitude and timing
+where data permit. Measure sequence conservation and enhancer turnover separately. Distinguish stable baseline
+expression from stable responses to perturbation: only the latter directly probes continuity of coordination.
+Where feasible, compare single and combined enhancer perturbations to estimate buffering rather than relying
+solely on activity–contact proxies.
+
+The analysis should compare a baseline model containing gene essentiality, expression, tissue breadth, direct
+target count, regulatory landscape complexity, sequence composition and phylogenetic relationships with an
+augmented model including independently measured reach and buffering. For a directional test, measure the
+number and breadth of independently affected modules following a matched perturbation in a reference species,
+and evaluate continuity of responses in other species; do not use cross-species response similarity as a predictor of
+itself. Use held-out species or clades and phylogenetically informed uncertainty, and avoid defining module
+membership from the very outcome being predicted. Prespecify minimum effect sizes, measurement reliability
+and falsification criteria. Failure to improve prediction of functional continuity in a sufficiently powered test
+would count against H3; stable output alone would not establish conserved internal wiring. No cross-species
+perturbational analysis has yet been performed here.
+
+
+
+
+                                                                                                        Preprint candidate (v6) • Page 16
+
+<PARSED TEXT FOR PAGE: 17 / 21>
+
+ARCHITECTURAL ECONOMY / HYPOTHESIS & COMPUTATIONAL STUDY
+
+
+
+7.2 Molecular functional equivalence (H3-M)
+Sequence substitution and the functional contract
+
+The same function can be realized by more than one nucleotide sequence. In coding DNA, synonymous
+substitutions preserve the amino-acid sequence but may alter expression or splicing; conservative amino-acid
+substitutions can preserve a biochemical activity without guaranteeing identical protein function. In noncoding
+DNA, changes in binding sites, compensatory substitutions and enhancer turnover can preserve regulatory
+activity [34,35,37,39,40]. The analogy to the PDP-8 is a compatible functional interface, not an assumption that
+genes execute software. Molecular equivalence is always relative to a specified assay, cellular context and
+tolerance; it does not imply equivalence of whole organisms.
+
+We propose Functional Equivalence Mapping (FEM) to characterize this many-to-one relationship. For
+corresponding sequences s and t, let d(s,t) be substitutions per comparable aligned base (indels reported
+separately), and let Δ = A(t) − A(s), where A is measured log₂ reporter enrichment in a common experimental
+context. The pair satisfies the operational activity requirement when the true Δ lies between − δ and + δ, where δ
+is an independently justified maximum tolerable difference. Equivalence within a tolerance is a pairwise relation,
+not necessarily transitive. Figure 12 shows how molecular divergence and assay-level equivalence are
+distinguished.
+
+
+
+
+Figure 12. Functional Equivalence Mapping (FEM). (A) The shaded band denotes a prespecified activity tolerance independent of
+sequence divergence. (B) Example interval-based decisions: a 90% confidence interval entirely within ± δ supports equivalence at a 5%
+two-one-sided-test level; an interval wholly beyond a margin supports a difference exceeding that margin; overlap may be inconclusive.
+Illustrative design, not experimental measurements [41].
+
+H3-M: among active, comparable regulatory sequences, independently measured buffering and alternative
+regulatory implementations should predict activity equivalence beyond sequence divergence and conventional
+covariates. The prediction is conditional: extra coordinating dependencies may offset the benefit of redundancy.
+This is a molecular subhypothesis of H3; activity equivalence alone cannot demonstrate preservation of network
+coordination.
+
+
+
+
+                                                                                                      Preprint candidate (v6) • Page 17
+
+<PARSED TEXT FOR PAGE: 18 / 21>
+
+ARCHITECTURAL ECONOMY / HYPOTHESIS & COMPUTATIONAL STUDY
+
+
+
+7.3 Prospective research program: from sequence to coordination
+Study A: primate enhancer equivalence
+
+Klein et al. [39] assayed 11 extant primate orthologs and nine reconstructed ancestral versions of human-active
+enhancer tiles in HepG2 cells, obtaining activity scores for 5,426 sequences across 344 tiles. They already
+quantified sequence–activity divergence; FEM is not a claim of priority for this comparison. The proposed
+extension is explicit equivalence testing followed by held-out evaluation of architectural predictors.
+Supplementary Table S4 and GEO GSE113978 provide the starting resources. Whalen et al. [40] identified opposing
+predicted effects of substitutions in human-accelerated regions and tested regulatory activity in human and
+chimpanzee neural progenitor cells, providing a complementary context for evaluating candidate compensation.
+
+Freeze the sequence alignment policy, cohort, activity filters, equivalence margin, and precision criteria before
+testing. Use replicate-level measurements where available; barcodes are not independent biological replicates.
+Estimate paired activity differences with replicate-aware uncertainty, use two one-sided tests (TOST) [41], and
+report equivalent, meaningfully different and inconclusive pairs separately. If summary scores lack valid
+uncertainty, restrict the analysis to descriptive candidates. Account for related sequences and overlapping tiles
+using locus-level resampling and phylogenetically informed models. A high-divergence subset must be defined in
+advance. Report ascertainment of human-active liver candidates and uncertainty in reconstructed ancestors;
+neither inactive sequences nor unmeasured pairs are evidence of successful equivalence.
+
+Test candidate compensation with measured ancestral, single-substitution and combined-substitution constructs
+where available. Restoration toward ancestral activity supports compensation; nonadditive epistasis requires
+departure from an explicitly defined additive expectation. Reporter assays isolate aspects of sequence activity but
+do not establish endogenous target regulation. Where independent motif multiplicity, enhancer redundancy or
+perturbational measurements are available, compare a baseline model (divergence, activity, length, assay context
+and phylogeny) against a model augmented with architecture. Hold out entire enhancer loci or clades; avoid using
+activity outcomes to construct predictors. Treat absence of predictive improvement in a well-powered analysis as
+evidence against H3-M.
+
+Study B: coordination across biological systems
+
+The next level is comparative input–output testing. The cross-species immune-response dataset of Hagai et al. [42]
+supplies a prospective starting point for comparing independently defined pathway responses and activation
+timing under matched stimuli. Match cell populations, time points and donor-level replicates; compare module
+agreement to expression-, size- and detectability-matched controls and within-species reliability. Equivalent
+responses alone do not establish preserved causal wiring. Test matched regulator perturbations where suitable
+data exist, and then ask whether independently estimated architectural reach and buffering predict cross-species
+response continuity beyond established covariates. These are new experiments, not results of the present study.
+
+
+
+
+                                                                                       Preprint candidate (v6) • Page 18
+
+<PARSED TEXT FOR PAGE: 19 / 21>
+
+ARCHITECTURAL ECONOMY / HYPOTHESIS & COMPUTATIONAL STUDY
+
+
+
+8. Conclusion: conservation of architecture rather than implementation
+Architectural economy provides a shared framework for understanding how complex functionality can arise
+under finite resources. In the PDP-8 and synthetic network benchmarks, composable reuse reduces static
+implementation cost but concentrates shared dependencies. Modularization and targeted redundancy mitigate
+selected failures, yet the machinery that coordinates protection introduces dependencies of its own. Economy,
+resilience and adaptability must therefore be assessed together, under explicit resource and fault models. These
+are demonstrated properties of the computational models, not claims of universal evolutionary optimization.
+
+Our exploratory genomic analysis did not establish the predicted relationship between downstream regulatory
+reach and individual enhancer sequence conservation. The additional predictors did not improve held-out
+performance. This result neither establishes H2 nor demonstrates that enhancer turnover caused its failure. It
+does, however, clarify a critical distinction: architectural importance cannot be inferred from nucleotide
+conservation alone.
+
+The history of the PDP-8 makes the distinction concrete. Across successive hardware generations, implementation
+technology changed while a compatible instruction architecture permitted continued execution of existing
+software. What endured was the functional contract, rather than the circuitry that realized it. Regulatory
+evolution offers experimentally documented cases in which molecular changes coexist with preserved biological
+output [34,37,38], although functional continuity must not be confused with invariant network topology.
+
+The refined research question is whether selection can preserve consequential coordination while permitting its
+molecular implementation to change, and whether architecture adds predictive value beyond established
+evolutionary models. FEM provides an operational starting point: identify different nucleotide sequences
+satisfying the same assay-level functional requirement, test candidate compensation, and then determine whether
+the resulting tolerance extends to independently measured regulatory relationships and perturbational responses.
+The proposed H3-M and H3 tests are not confirmation of H2. They distinguish continuity of output from
+continuity of internal wiring and set a falsifiable path from molecular activity to coordinated system behavior.
+
+The enduring property of a complex system may reside not in the permanence of its components, but in the
+continuity of their coordination.
+
+
+
+Declarations and manuscript status
+       Article type: Hypothesis and perspective with original computational benchmark simulations and an
+        exploratory observational comparative-genomic pilot.
+       Code and data availability: the research repository (https://github.com/RandoSY/architectural-
+        economy) preserves earlier manuscript versions, computational benchmarks, audit materials and
+        corrected H2 pilot results. The H3 and H3-M research agendas are available under research/. New
+        molecular and comparative-response datasets are identified in [39,40,42]; no new H3-M or H3 analyses
+        are reported. Archival DOI and complete v6 repository transfer are pending.
+       Funding and competing interests: [Author to confirm before submission.]
+       Author affiliation: Independent Researcher, Indiana, USA. ORCID: https://orcid.org/0009-0003-1657-
+        0243. Correspondence details to be confirmed before journal submission.
+       Generative AI disclosure: ChatGPT assisted literature discovery, synthesis, illustrations, drafting,
+        independent computational checks and editing; Google Gemini/Antigravity assisted critical editing, model
+        refinement and computational implementation. AI-assisted figures are labeled conceptual or derived
+        from code outputs, as appropriate. The author must review the manuscript, references, code, figures and
+        disclosures and confirm responsibility before submission. No independent human peer review has
+        occurred.
+
+
+
+
+                                                                                       Preprint candidate (v6) • Page 19
+
+<PARSED TEXT FOR PAGE: 20 / 21>
+
+ARCHITECTURAL ECONOMY / HYPOTHESIS & COMPUTATIONAL STUDY
+
+
+
+References
+    1.  ENCODE Project Consortium. An integrated encyclopedia of DNA elements in the human genome. Nature.
+        2012;489:57–74. https://doi.org/10.1038/nature11247
+    2. Kellis M, et al. Defining functional DNA elements in the human genome. Proc Natl Acad Sci USA.
+        2014;111:6131–6138. https://doi.org/10.1073/pnas.1318948111
+    3. Rands CM, Meader S, Ponting CP, Lunter G. 8.2% of the human genome is constrained: variation in rates
+        of turnover across functional element classes in the human lineage. PLoS Genet. 2014;10:e1004525.
+        https://doi.org/10.1371/journal.pgen.1004525
+    4. Zoonomia Consortium. Evolutionary constraint and innovation across hundreds of placental mammals.
+        Science. 2023;380:eabn3943. https://doi.org/10.1126/science.abn3943
+    5. Yan KK, Fang G, Bhardwaj N, Alexander RP, Gerstein M. Comparing genomes to computer operating
+        systems in terms of the topology and evolution of their regulatory control networks. Proc Natl Acad Sci
+        USA. 2010;107:9186–9191. https://doi.org/10.1073/pnas.0914771107
+    6. Davidson EH, et al. A genomic regulatory network for development. Science. 2002;295:1669–1678.
+        https://pubmed.ncbi.nlm.nih.gov/11872831/
+    7. Levine M, Davidson EH. Gene regulatory networks for development. Proc Natl Acad Sci USA.
+        2005;102:4936–4942. https://doi.org/10.1073/pnas.0408031102
+    8. Istrail S, Ben-Tabou De-Leon S, Davidson EH. The regulatory genome and the computer. Dev Biol.
+        2007;310:187–195. https://doi.org/10.1016/j.ydbio.2007.08.009
+    9. Andersson R, Sandelin A. Determinants of enhancer and promoter activities of regulatory elements. Nat
+        Rev Genet. 2020;21:71–87. https://doi.org/10.1038/s41576-019-0173-8
+    10. Schoenfelder S, Fraser P. Long-range enhancer–promoter contacts in gene expression control. Nat Rev
+        Genet. 2019;20:437–455. https://doi.org/10.1038/s41576-019-0128-0
+    11. Rao SSP, et al. Cohesin loss eliminates all loop domains. Cell. 2017;171:305–320.e24.
+        https://doi.org/10.1016/j.cell.2017.09.026
+    12. Fulco CP, et al. Activity-by-contact model of enhancer–promoter regulation from thousands of CRISPR
+        perturbations. Nat Genet. 2019;51:1664–1669. https://doi.org/10.1038/s41588-019-0538-0
+    13. McHugh CA, et al. The Xist lncRNA interacts directly with SHARP to silence transcription through HDAC3.
+        Nature. 2015;521:232–236. https://doi.org/10.1038/nature14443
+    14. ENCODE Project Consortium. Expanded encyclopaedias of DNA elements in the human and mouse
+        genomes. Nature. 2020;583:699–710. https://doi.org/10.1038/s41586-020-2493-4
+    15. Alon U. Network motifs: theory and experimental approaches. Nat Rev Genet. 2007;8:450–461.
+        https://doi.org/10.1038/nrg2102
+    16. Bessho Y, Hirata H, Masamizu Y, Kageyama R. Periodic repression by the bHLH factor Hes7 is an essential
+        mechanism for the somite segmentation clock. Genes Dev. 2003;17:1451–1456.
+        https://pubmed.ncbi.nlm.nih.gov/12783854/
+    17. Osterwalder M, et al. Enhancer redundancy provides phenotypic robustness in mammalian development.
+        Nature. 2018;554:239–243. https://doi.org/10.1038/nature25461
+    18. Bejerano G, et al. Ultraconserved elements in the human genome. Science. 2004;304:1321–1325.
+        https://pubmed.ncbi.nlm.nih.gov/15131266/
+    19. Dickel DE, et al. Ultraconserved enhancers are required for normal development. Cell. 2018;172:491–
+        499.e15. https://pubmed.ncbi.nlm.nih.gov/29358049/
+    20. Kirschner M, Gerhart J. Evolvability. Proc Natl Acad Sci USA. 1998;95:8420–8427.
+        https://doi.org/10.1073/pnas.95.15.8420
+    21. Kitano H. Biological robustness. Nat Rev Genet. 2004;5:826–837. https://doi.org/10.1038/nrg1471
+    22. Castle SD, Grierson CS, Gorochowski TE. Towards an engineering theory of evolution. Nat Commun.
+        2021;12:3326. https://doi.org/10.1038/s41467-021-23573-3
+    23. Lynch M, Conery JS. The origins of genome complexity. Science. 2003;302:1401–1404.
+        https://pubmed.ncbi.nlm.nih.gov/14631042/
+    24. Lynch M, Marinov GK. The bioenergetic costs of a gene. Proc Natl Acad Sci USA. 2015;112:15690–15695.
+        https://pubmed.ncbi.nlm.nih.gov/26575626/
+
+                                                                                   Preprint candidate (v6) • Page 20
+
+<PARSED TEXT FOR PAGE: 21 / 21>
+
+ARCHITECTURAL ECONOMY / HYPOTHESIS & COMPUTATIONAL STUDY
+
+
+
+    25. Digital Equipment Corporation. Small Computer Handbook. March 1967. https://bitsavers.trailing-
+        edge.com/pdf/dec/pdp8/handbooks/SmallComputerHandbook_Mar67.pdf
+    26. Johnstone A. The Young Person’s Guide to… The PDP-8. Computer Conservation Society, Resurrection, issue
+        1. May 1990. https://www.computerconservationsociety.org/resurrection/res01.htm
+    27. Simon HA. The architecture of complexity. Proc Am Philos Soc. 1962;106:467–482.
+        https://www.sfipress.org/21-simon-1962
+    28. Davidson EH, Erwin DH. Gene regulatory networks and the evolution of animal body plans. Science.
+        2006;311:796–800. https://doi.org/10.1126/science.1113832
+    29. Singh D, Yi SV. Enhancer pleiotropy, gene expression, and the architecture of human enhancer–gene
+        interactions. Mol Biol Evol. 2021;38(9):3898–3909. https://pubmed.ncbi.nlm.nih.gov/33749795/
+    30. Replogle JM, et al. Mapping information-rich genotype-phenotype landscapes with genome-scale Perturb-
+        seq. Cell. 2022;185:2559–2575.e28. https://doi.org/10.1016/j.cell.2022.05.013
+    31. Nasser J, et al. Genome-wide enhancer maps link risk variants to disease genes. Nature. 2021;593:238–243.
+        https://doi.org/10.1038/s41586-021-03446-x
+    32. Replogle JM, et al. Mapping information-rich genotype-phenotype landscapes with genome-scale Perturb-
+        seq: commonly requested supplemental files. Figshare+. 2022.
+        https://doi.org/10.25452/figshare.plus.21632564
+    33. UCSC Genome Browser. Zoonomia 241 placental mammal alignment, GRCh38 basewise conservation
+        (phyloP). https://genome.ucsc.edu/cgi-bin/hgTrackUi?db=hg38&g=cons241way
+    34. Ludwig MZ, Bergman C, Patel NH, Kreitman M. Evidence for stabilizing selection in a eukaryotic
+        enhancer element. Nature. 2000;403:564–567. https://doi.org/10.1038/35000615
+    35. Villar D, et al. Enhancer evolution across 20 mammalian species. Cell. 2015;160:554–566.
+        https://doi.org/10.1016/j.cell.2015.01.006
+    36. Jones DW. Frequently asked questions about the DEC PDP-8 family. University of Iowa.
+        https://homepage.cs.uiowa.edu/~jones/pdp8/faqs/ (accessed 24 November 2026).
+    37. Domené S, Bumaschny VF, de Souza FSJ, Franchini LF, Nasif S, Low MJ, Rubinstein M. Enhancer turnover
+        and conserved regulatory function in vertebrate evolution. Philos Trans R Soc Lond B Biol Sci.
+        2013;368:20130027. https://doi.org/10.1098/rstb.2013.0027
+    38. Berthelot C, Villar D, Horvath JE, Odom DT, Flicek P. Complexity and conservation of regulatory
+        landscapes underlie evolutionary resilience of mammalian gene expression. Nat Ecol Evol. 2018;2:152–163.
+        https://doi.org/10.1038/s41559-017-0377-2
+    39. Klein JC, et al. Functional characterization of enhancer evolution in the primate lineage. Genome Biol.
+        2018;19:99. https://doi.org/10.1186/s13059-018-1473-6
+    40. Whalen S, Inoue F, Ryu H, et al. Machine learning dissection of human accelerated regions in primate
+        neurodevelopment. Neuron. 2023;111:857–873.e8. https://doi.org/10.1016/j.neuron.2022.12.026
+    41. Lakens D. Equivalence tests: a practical primer for t tests, correlations, and meta-analyses. Soc Psychol
+        Personal Sci. 2017;8:355–362. https://doi.org/10.1177/1948550617697177
+    42. Hagai T, Chen X, Miragaia RJ, et al. Gene expression variability across cells and species shapes innate
+        immunity. Nature. 2018;563:197–202. https://doi.org/10.1038/s41586-018-0657-2
+
+
+
+
+                                                                                     Preprint candidate (v6) • Page 21
