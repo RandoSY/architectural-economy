@@ -28,3 +28,7 @@ python reproduce.py
 ```
 
 See that directory's README for limitations and input provenance. The H3 hypothesis is prospective; no empirical H3 results are included. See `build/V5_BUILD_NOTES.md` for document provenance.
+
+## Version 6 additions
+
+The existing v5 computational and genomic evidence is unchanged. Version 6 adds a conceptual Figure 12, reproducible with `python build/plot_fem_v6.py` (Matplotlib), and a proposed molecular equivalence experiment. No empirical H3 or H3-M data have been analyzed. See [the transfer manifest](publication/V6_MANIFEST.md) and [the molecular equivalence protocol](research/H3_MOLECULAR_EQUIVALENCE.md).

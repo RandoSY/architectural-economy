@@ -7,13 +7,13 @@ ORCID: [0009-0003-1657-0243](https://orcid.org/0009-0003-1657-0243)
 
 *Architectural economy, shared dependencies and functional continuity: from the PDP-8 to the regulatory genome.*
 
-Version 5.0 — 24 November 2026 — preprint candidate; not peer reviewed.
+Version 6.0 — 24 November 2026 — preprint candidate; not peer reviewed.
 
 > The enduring property of a complex system may reside not in the permanence of its components, but in the continuity of their coordination.
 
 ## The next frontier: continuity of coordination
 
-**[Read the continued research agenda →](research/H3_FUNCTIONAL_CONTINUITY.md)**
+**[Continued research agenda — H3](research/H3_FUNCTIONAL_CONTINUITY.md)** · **[Molecular equivalence — H3-M / FEM](research/H3_MOLECULAR_EQUIVALENCE.md)**
 
 The initial genomic pilot did not establish a link between regulatory reach and individual enhancer conservation. Rather than treating this as confirmation of a different hypothesis, we propose a distinct experimental program: measure what survives evolutionary change at the level of coordinated biological responses.
 
@@ -28,6 +28,8 @@ The roadmap defines experimental datasets, controls, falsification criteria, rep
 
 ## Read the paper
 
+- **[Version 6 full text](publication/Architectural_Economy_v6.txt)** — searchable companion extracted from all 21 pages of the author-approved manuscript; figure images and original formatting are not reproduced here.
+- [Version 6 transfer manifest and checksums](publication/V6_MANIFEST.md) — formatted PDF, DOCX and Figure 12 pending binary transfer at this checkpoint.
 - [Version 5 PDF](publication/Architectural_Economy_v5.pdf)
 - [Version 5 Word manuscript](publication/Architectural_Economy_v5.docx)
 - [Reproduction instructions](REPRODUCE.md)
@@ -38,6 +40,7 @@ The roadmap defines experimental datasets, controls, falsification criteria, rep
 
 - **H1:** Supported within the specified computational models. Shared subroutines save 70.8% of code words at 64 PDP-8 tasks, with a 4.1% increase in modeled memory cycles. Reuse concentrates failure dependencies; coordination machinery may introduce additional vulnerabilities.
 - **H2:** Not supported by the corrected exploratory K562 pilot (636 regions, 408 genes). Adjusted reach coefficient −0.026 (95% CI −0.094 to 0.042); reach–buffering interaction 0.012 (−0.056 to 0.080). The analysis is limited and is not a definitive rejection.
+- **H3-M / Functional Equivalence Mapping (FEM):** Prospective molecular test comparing nucleotide divergence with independently assayed regulatory activity and prespecified equivalence margins, then evaluating architectural predictors on held-out data. No new empirical H3-M results.
 - **H3:** Prospective hypothesis that essential coordinated behavior may persist despite changes in molecular implementation. Not tested in this work.
 
 ## Repository structure
