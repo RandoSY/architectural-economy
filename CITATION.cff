@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this research, please cite the versioned manuscript."
+title: "Architectural Economy in Biological and Technological Systems"
+authors:
+  - family-names: Young
+    given-names: Randall S.
+    orcid: "https://orcid.org/0009-0003-1657-0243"
+version: "5.0"
+date-released: 2026-11-24
+repository-code: "https://github.com/RandoSY/architectural-economy"
+keywords:
+  - architectural economy
+  - PDP-8
+  - regulatory genomics
+  - fault tolerance
+  - functional continuity
