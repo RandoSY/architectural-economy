@@ -1,29 +1,24 @@
 # Architectural Economy in Biological and Technological Systems
 
-**Randall S. Young — Independent Researcher**  
+**Randall S. Young — Independent Researcher, Indiana, USA**  
 ORCID: [0009-0003-1657-0243](https://orcid.org/0009-0003-1657-0243)
 
-*A hypothesis for the evolutionary conservation of genomic regulatory information: from the PDP-8 to the regulatory genome.*
+*Architectural economy, shared dependencies and functional continuity: from the PDP-8 to the regulatory genome.*
 
-This research investigates architectural economy as a cross-domain principle: reusable primitives enable complexity under resource constraints, but create shared dependencies. Modularity and targeted redundancy can mitigate them, while introducing coordination costs and new potential failures.
+Version 5.0 — 24 November 2026 — preprint candidate; not peer reviewed.
 
-## Research status
+> The enduring property of a complex system may reside not in the permanence of its components, but in the continuity of their coordination.
 
-Version 3 is a preprint candidate, not peer reviewed. The computational benchmarks have been reproduced in a separate execution environment. The proposed comparative-genomic hypothesis has not yet been tested on empirical genomic data.
+## Research findings
 
-Reported and audited findings include:
-- 70.8% lower PDP-8 code footprint using shared multiplication subroutines at 64 tasks, with a 4.1% increase in modeled memory cycles.
-- 16,384 correct multiplication checks and 540 exhaustive synthetic network equivalence comparisons across all 4,096 input states.
-- Fault exposure depends on the architecture and the fault model; the coordination of redundant components can itself create vulnerabilities.
+- **H1 (architectural economy):** computationally supported within the specified models. At 64 PDP-8 multiplication tasks, shared code saves 70.8% of code words with a 4.1% increase in modeled memory cycles. Reuse concentrates failure dependencies; redundant coordination machinery introduces additional vulnerability.
+- **H2 (coordination and sequence constraint):** not supported in the corrected exploratory genomic analysis of 636 regulatory regions and 408 target genes. Adjusted regulatory reach coefficient −0.026 (95% CI −0.094 to 0.042); reach–buffering interaction 0.012 (−0.056 to 0.080). The analysis has important biological and methodological limitations.
+- **H3 (functional continuity):** a prospective hypothesis that essential coordinated behavior can persist despite changes in molecular implementation. This remains to be tested; it is not a finding from the H2 experiment.
 
-## Repository status
+## Publication and reproducibility status
 
-The repository has been initialized for the complete research archive. The companion publication package contains the revised manuscript (PDF and Word), figures, simulation source, result JSON, independent audit, synthetic genomic validation, prior versions and reproduction instructions. These files will be present after the package is pushed; this README alone does not constitute the full release.
+The complete v5 manuscript, computational source code, figures, audited results, corrected genomic cohort and earlier manuscript versions are prepared for transfer to this repository. This README is the public research summary, not the complete release. The original large public genomics datasets should be retrieved from their respective archives, rather than duplicated in Git.
 
-## Citation and publication
+Journal target: BioSystems. Preprint DOI pending. Neither publication nor peer review is implied.
 
-Young, Randall S. (2026). *Architectural Economy in Biological and Technological Systems: A hypothesis for the evolutionary conservation of genomic regulatory information: from the PDP-8 to the regulatory genome.* Version 3, preprint candidate.
-
-DOI pending. Journal target: BioSystems, subject to author review and submission requirements.
-
-AI assistance: ChatGPT and Google Gemini/Antigravity were used in drafting, computational implementation, editing and checking. The author is responsible for reviewing and approving the work before formal publication.
+AI assistance: ChatGPT and Google Gemini/Antigravity contributed to drafting, computational implementation, editing and checking. The human author is responsible for reviewing and approving the final work.
