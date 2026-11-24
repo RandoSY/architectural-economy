@@ -11,6 +11,20 @@ Version 7.0 — 24 November 2026 — preprint candidate; not peer reviewed.
 
 > The enduring property of a complex system may reside not in the permanence of its components, but in the continuity of their coordination.
 
+## Featured next investigation — Paper 2
+
+**[Artificial Intelligence as an Experimental Model of Biological Evolution](research/ai-biological-evolution/README.md)**
+
+*Research prospectus 1.0 — 24 November 2026.*
+
+**Reverse the direction of inquiry:** study the architecture and controlled evolution of artificial intelligence to better understand biological evolution.
+
+- **H4a:** tolerance of implementation substitutions.
+- **H4b:** compensatory adaptation after perturbation.
+- **H4c:** predictive transfer of architectural measurements to independent biological evidence.
+
+The prospectus preserves a controlled neural-network experiment, functional equivalence measurements, decision gates, a literature review roadmap, and a handoff for future AI researchers. This is a separate proposed paper, not new experimental evidence for version 7. The complete prospectus text is available in the link above; the original illustrated PDF is identified by checksum pending binary transfer.
+
 ## The next frontier: continuity of coordination
 
 **[Continued research agenda — H3](research/H3_FUNCTIONAL_CONTINUITY.md)** · **[Molecular equivalence — H3-M / FEM](research/H3_MOLECULAR_EQUIVALENCE.md)**
