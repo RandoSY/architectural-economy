@@ -99,4 +99,4 @@ Suggested repository: a separate companion repository cross-linked to the founda
 
 ---
 
-Archive note: original four-page PDF, `AI_as_a_Laboratory_for_Biological_Evolution_Research_Prospectus.pdf` (91,090 bytes). SHA-256: `5b7fed98fd7de89585f351b9b8aac3e1229fb9523e1538a5a1e9046ca5f9d81a`. PDF binary pending transfer. The foundational paper is preserved at [version 7](../../publication/Architectural_Economy_v7.txt).
+Archive note: original four-page PDF, `AI_as_a_Laboratory_for_Biological_Evolution_Research_Prospectus.pdf` (91,090 bytes). SHA-256: `8e6a31ed733ed0afeb964b21737dac064118d05f238f8af958076ed3438ec5b6`. PDF binary pending transfer. The foundational paper is preserved at [version 7](../../publication/Architectural_Economy_v7.txt).
