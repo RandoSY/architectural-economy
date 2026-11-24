@@ -7,7 +7,7 @@ ORCID: [0009-0003-1657-0243](https://orcid.org/0009-0003-1657-0243)
 
 *Architectural economy, shared dependencies and functional continuity: from the PDP-8 to the regulatory genome.*
 
-Version 6.0 — 24 November 2026 — preprint candidate; not peer reviewed.
+Version 7.0 — 24 November 2026 — preprint candidate; not peer reviewed.
 
 > The enduring property of a complex system may reside not in the permanence of its components, but in the continuity of their coordination.
 
@@ -27,6 +27,12 @@ The initial genomic pilot did not establish a link between regulatory reach and 
 The roadmap defines experimental datasets, controls, falsification criteria, reproducibility milestones and a path from descriptive functional comparison to causal tests. It is a prospective program, not a claim of biological validation.
 
 ## Read the paper
+
+- **[Version 7 full text](publication/Architectural_Economy_v7.txt)** — latest author-approved 21-page, 46-reference manuscript, searchable text companion. Figure images and original formatting are not reproduced here.
+- [Version 7 archive manifest](publication/V7_MANIFEST.md) — exact formatted files and source package pending transfer.
+- [Figure 11 historical photo provenance](figures/Figure11_photo_sources.md) — authentic historical photographs for a future photo-based edition.
+
+Version 7 grounds functional continuity in developmental system drift and the historical evolution of PDP-8-compatible hardware. The analogy concerns preserved functional behavior, not biological identity or deliberate engineering of organisms.
 
 - **[Version 6 full text](publication/Architectural_Economy_v6.txt)** — searchable companion extracted from all 21 pages of the author-approved manuscript; figure images and original formatting are not reproduced here.
 - [Version 6 transfer manifest and checksums](publication/V6_MANIFEST.md) — formatted PDF, DOCX and Figure 12 pending binary transfer at this checkpoint.

@@ -5,7 +5,7 @@ authors:
   - family-names: Young
     given-names: Randall S.
     orcid: "https://orcid.org/0009-0003-1657-0243"
-version: "6.0"
+version: "7.0"
 date-released: 2026-11-24
 repository-code: "https://github.com/RandoSY/architectural-economy"
 keywords:
@@ -15,3 +15,4 @@ keywords:
   - fault tolerance
   - functional continuity
   - functional equivalence mapping
+  - developmental system drift
