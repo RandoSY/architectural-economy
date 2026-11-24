@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/architectural-economy-logo.jpg" width="192" alt="Architectural Economy: functional continuity through changing implementation"></p>
+
 # Architectural Economy in Biological and Technological Systems
 
 **Randall S. Young — Independent Researcher, Indiana, USA**  
@@ -8,6 +10,21 @@ ORCID: [0009-0003-1657-0243](https://orcid.org/0009-0003-1657-0243)
 Version 5.0 — 24 November 2026 — preprint candidate; not peer reviewed.
 
 > The enduring property of a complex system may reside not in the permanence of its components, but in the continuity of their coordination.
+
+## The next frontier: continuity of coordination
+
+**[Read the continued research agenda →](research/H3_FUNCTIONAL_CONTINUITY.md)**
+
+The initial genomic pilot did not establish a link between regulatory reach and individual enhancer conservation. Rather than treating this as confirmation of a different hypothesis, we propose a distinct experimental program: measure what survives evolutionary change at the level of coordinated biological responses.
+
+| Research direction | Question |
+|---|---|
+| Functional continuity | Do biological modules preserve response patterns across species? |
+| Temporal continuity | Is the order and timing of activation preserved? |
+| Dependency continuity | Do equivalent perturbations disrupt equivalent functions? |
+| Architectural explanation | Can reuse, modularity and buffering predict continuity in held-out data? |
+
+The roadmap defines experimental datasets, controls, falsification criteria, reproducibility milestones and a path from descriptive functional comparison to causal tests. It is a prospective program, not a claim of biological validation.
 
 ## Read the paper
 
