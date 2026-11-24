@@ -1,0 +1,1 @@
+Historical cohort-preparation stage. The original README and acquisition instructions are superseded by ../corrected_pilot/README.md. The initial unconverted hg19-as-hg38 conservation measurements were invalid and are deliberately excluded from this release. Use the corrected pilot as the authoritative empirical analysis.

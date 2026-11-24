@@ -1,0 +1,171 @@
+{
+  "note": "Synthetic pipeline verification only",
+  "confounded_null": {
+    "dataset_label": "SYNTHETIC DRY-RUN 1: Confounded Null (true beta_1=0, beta_4=0)",
+    "n_enhancers": 1189,
+    "n_genes": 300,
+    "n_chroms": 12,
+    "global_cv": {
+      "M0_elem_baseline": {
+        "loco_mse": 0.89591,
+        "loco_r2": 0.06404
+      },
+      "M1_pleiotropy_plus_gene": {
+        "loco_mse": 0.63942,
+        "loco_r2": 0.332
+      },
+      "M2_plus_reach_and_buffering": {
+        "loco_mse": 0.62197,
+        "loco_r2": 0.35022
+      }
+    },
+    "within_gene_fe_cv": {
+      "M1b_within_gene_baseline": {
+        "loco_within_mse": 0.44352,
+        "loco_within_r2": 0.11546,
+        "n_paired_enhancers": 1189
+      },
+      "M2b_within_gene_plus_arch": {
+        "loco_within_mse": 0.44684,
+        "loco_within_r2": 0.10884,
+        "n_paired_enhancers": 1189
+      }
+    },
+    "M2_global_bootstrap_ci": {
+      "T_breadth": {
+        "beta": 0.1201,
+        "ci95_low": 0.076,
+        "ci95_high": 0.1679,
+        "se_boot": 0.0229
+      },
+      "B_reach": {
+        "beta": 0.1759,
+        "ci95_low": 0.1195,
+        "ci95_high": 0.2255,
+        "se_boot": 0.0279
+      },
+      "R_buffering": {
+        "beta": -0.0189,
+        "ci95_low": -0.0712,
+        "ci95_high": 0.0278,
+        "se_boot": 0.0256
+      },
+      "B_x_R": {
+        "beta": -0.0068,
+        "ci95_low": -0.0559,
+        "ci95_high": 0.0303,
+        "se_boot": 0.0213
+      }
+    },
+    "M2b_within_gene_bootstrap_ci": {
+      "T_breadth": {
+        "beta": 0.1178,
+        "ci95_low": 0.0676,
+        "ci95_high": 0.1677,
+        "se_boot": 0.026
+      },
+      "B_reach": {
+        "beta": 0.0156,
+        "ci95_low": -0.0592,
+        "ci95_high": 0.0947,
+        "se_boot": 0.0403
+      },
+      "R_buffering": {
+        "beta": -0.0188,
+        "ci95_low": -0.0781,
+        "ci95_high": 0.0303,
+        "se_boot": 0.0295
+      },
+      "B_x_R": {
+        "beta": -0.0109,
+        "ci95_low": -0.071,
+        "ci95_high": 0.033,
+        "se_boot": 0.0257
+      }
+    }
+  },
+  "true_coordination": {
+    "dataset_label": "SYNTHETIC DRY-RUN 2: True Coordination (beta_1>0, beta_4<0)",
+    "n_enhancers": 1169,
+    "n_genes": 300,
+    "n_chroms": 12,
+    "global_cv": {
+      "M0_elem_baseline": {
+        "loco_mse": 1.18153,
+        "loco_r2": 0.04878
+      },
+      "M1_pleiotropy_plus_gene": {
+        "loco_mse": 0.84972,
+        "loco_r2": 0.31592
+      },
+      "M2_plus_reach_and_buffering": {
+        "loco_mse": 0.63466,
+        "loco_r2": 0.48905
+      }
+    },
+    "within_gene_fe_cv": {
+      "M1b_within_gene_baseline": {
+        "loco_within_mse": 0.55042,
+        "loco_within_r2": 0.09904,
+        "n_paired_enhancers": 1169
+      },
+      "M2b_within_gene_plus_arch": {
+        "loco_within_mse": 0.46117,
+        "loco_within_r2": 0.24513,
+        "n_paired_enhancers": 1169
+      }
+    },
+    "M2_global_bootstrap_ci": {
+      "T_breadth": {
+        "beta": 0.1728,
+        "ci95_low": 0.1318,
+        "ci95_high": 0.2186,
+        "se_boot": 0.0231
+      },
+      "B_reach": {
+        "beta": 0.5461,
+        "ci95_low": 0.4973,
+        "ci95_high": 0.6,
+        "se_boot": 0.0269
+      },
+      "R_buffering": {
+        "beta": -0.15,
+        "ci95_low": -0.1913,
+        "ci95_high": -0.1045,
+        "se_boot": 0.0237
+      },
+      "B_x_R": {
+        "beta": -0.1255,
+        "ci95_low": -0.1668,
+        "ci95_high": -0.0727,
+        "se_boot": 0.0245
+      }
+    },
+    "M2b_within_gene_bootstrap_ci": {
+      "T_breadth": {
+        "beta": 0.1625,
+        "ci95_low": 0.1104,
+        "ci95_high": 0.2129,
+        "se_boot": 0.0265
+      },
+      "B_reach": {
+        "beta": 0.4342,
+        "ci95_low": 0.3782,
+        "ci95_high": 0.5053,
+        "se_boot": 0.0342
+      },
+      "R_buffering": {
+        "beta": -0.115,
+        "ci95_low": -0.163,
+        "ci95_high": -0.0665,
+        "se_boot": 0.026
+      },
+      "B_x_R": {
+        "beta": -0.1419,
+        "ci95_low": -0.1949,
+        "ci95_high": -0.0849,
+        "se_boot": 0.0298
+      }
+    }
+  }
+}

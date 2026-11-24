@@ -1,0 +1,16 @@
+{
+  "original": 695,
+  "mapped": 694,
+  "unique_score_ids": 694,
+  "changed_coordinates": 693,
+  "chromosome_changed": 0,
+  "excluded_ids": [
+    "chr17:34968211-34968411"
+  ],
+  "unchanged_ids": [
+    "chr19:895348-895696"
+  ],
+  "complete_coverage": 693,
+  "zero_coverage": 1,
+  "partial_coverage": 0
+}

@@ -1,0 +1,18 @@
+{
+  "abc_k562_rows": 61981,
+  "distal_autosomal_links": 44248,
+  "primary_intergenic_candidates": 7197,
+  "joined_intervals": 695,
+  "joined_genes": 438,
+  "chromosomes": 22,
+  "reach_range": [
+    51,
+    5361
+  ],
+  "median_gene_reach": 250.0,
+  "missing_residual_expression": 57,
+  "missing_abc_target_expression": 695,
+  "exact_top_score_tied_intervals": 815,
+  "assembly": "hg19 (GRCh37)",
+  "status": "provisional, selected annotated profiles; no conservation outcome; no H2 test"
+}

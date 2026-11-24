@@ -1,0 +1,1 @@
+The final manuscript PDF and DOCX are the authoritative rendered deliverables. historical_make_v5.py is preserved as provenance, not a portable build system; it expects the prior manuscript and uses /mnt/data paths. The manuscript has subsequent layout adjustments. Do not assume running this script produces a byte-identical final manuscript.

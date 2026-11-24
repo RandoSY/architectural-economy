@@ -1,0 +1,92 @@
+{
+  "status": "SYNTHETIC SOFTWARE CHECK ONLY",
+  "n_enhancers": 900,
+  "n_genes": 180,
+  "n_chromosomes": 6,
+  "rows_dropped_missing": 0,
+  "cross_validation": {
+    "M0": {
+      "n": 900,
+      "mse": 0.5870952208475598,
+      "r2": -0.0033964610494681136
+    },
+    "M1": {
+      "n": 900,
+      "mse": 0.5984803613593956,
+      "r2": -0.022854649930029947
+    },
+    "M2": {
+      "n": 900,
+      "mse": 0.4173972476096409,
+      "r2": 0.28663203815783034
+    },
+    "FE1": {
+      "n": 900,
+      "mse": 0.3926333729156355,
+      "r2": -0.0034241088519679774
+    },
+    "FE2": {
+      "n": 900,
+      "mse": 0.32349080725346246,
+      "r2": 0.1732784389169708
+    }
+  },
+  "between_gene": {
+    "n": 900,
+    "blocks": 180,
+    "terms": {
+      "B_reach": {
+        "beta": 0.2945702262771072,
+        "ci95": [
+          0.2502549448105344,
+          0.33888550774368004
+        ],
+        "p": 5.583689852729931e-28
+      },
+      "R_buffering": {
+        "beta": 0.20191113550952303,
+        "ci95": [
+          0.15462118199560998,
+          0.24920108902343607
+        ],
+        "p": 1.1464347288247213e-14
+      },
+      "B_x_R": {
+        "beta": -0.21440463042915178,
+        "ci95": [
+          -0.2567799419535373,
+          -0.17202931890476625
+        ],
+        "p": 6.117555857790717e-19
+      }
+    },
+    "aliased_columns": [
+      "knockdown_efficiency",
+      "perturbed_cells"
+    ]
+  },
+  "within_gene_contrasts": {
+    "n": 900,
+    "blocks": 180,
+    "terms": {
+      "R_buffering": {
+        "beta": 0.21031230044352117,
+        "ci95": [
+          0.16078267215510642,
+          0.2598419287319359
+        ],
+        "p": 1.520877454122234e-14
+      },
+      "B_x_R": {
+        "beta": -0.20653659026434207,
+        "ci95": [
+          -0.251680413455769,
+          -0.1613927670729151
+        ],
+        "p": 2.7344051394354753e-16
+      }
+    },
+    "aliased_columns": []
+  },
+  "caution": "Single-context reach is gene-level, not enhancer-specific; FE2 does not estimate a reach main effect. Cluster intervals are exploratory, not the proposed block-bootstrap or permutation inference. No causal claim."
+}

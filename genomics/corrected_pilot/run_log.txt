@@ -1,0 +1,224 @@
+{
+  "status": "Exploratory corrected hg38 pilot: supplied mapping internally checked; chain conversion not independently rerun",
+  "counts": {
+    "matched": 694,
+    "fully_covered": 693,
+    "zero_covered": 1,
+    "partially_covered": 0
+  },
+  "fully_covered_genes": 437,
+  "complete_cases": 636,
+  "complete_case_genes": 408,
+  "chromosomes": 22,
+  "spearman_unadjusted_descriptive": {
+    "rho": -0.029733170350005417,
+    "naive_p_not_cluster_corrected": 0.4345188786033191
+  },
+  "regression_gene_clustered": {
+    "unadjusted_reach": {
+      "r2": 0.0002290377519208464,
+      "terms": {
+        "B": {
+          "beta": -0.010006554932686061,
+          "ci95": [
+            -0.06664287599510385,
+            0.046629766129731735
+          ],
+          "p": 0.7285297132952729
+        }
+      }
+    },
+    "baseline": {
+      "r2": 0.05293213626146809,
+      "terms": {}
+    },
+    "adjusted_reach": {
+      "r2": 0.054079737896639224,
+      "terms": {
+        "B": {
+          "beta": -0.026084827425779736,
+          "ci95": [
+            -0.09423448420484695,
+            0.04206482935328748
+          ],
+          "p": 0.45222779411164765
+        }
+      }
+    },
+    "adjusted_full": {
+      "r2": 0.05651670839282841,
+      "terms": {
+        "B": {
+          "beta": -0.02512038547040578,
+          "ci95": [
+            -0.09546844425859884,
+            0.04522767331778728
+          ],
+          "p": 0.4831020080708049
+        },
+        "R": {
+          "beta": 0.033329502126555506,
+          "ci95": [
+            -0.029884932729518636,
+            0.09654393698262964
+          ],
+          "p": 0.3006013187782786
+        },
+        "BxR": {
+          "beta": 0.012318779956704008,
+          "ci95": [
+            -0.055844867519360894,
+            0.08048242743276891
+          ],
+          "p": 0.7225727008802886
+        }
+      }
+    }
+  },
+  "chromosome_holdout_mse": {
+    "unadjusted_reach": 0.44134403762900626,
+    "baseline": 0.4332203165632756,
+    "adjusted_reach": 0.4356292801385435,
+    "adjusted_full": 0.4389905681579415
+  },
+  "within_gene": {
+    "n": 379,
+    "genes": 151,
+    "terms": {
+      "R": {
+        "beta": -0.39779799294546564,
+        "ci95": [
+          -0.7882762558129074,
+          -0.007319730078023889
+        ],
+        "p": 0.04590956191950707
+      },
+      "BxR": {
+        "beta": 0.023520360405580875,
+        "ci95": [
+          -0.1481962941550761,
+          0.19523701496623783
+        ],
+        "p": 0.7870372400022866
+      }
+    }
+  },
+  "limitations": [
+    "No cross-context activity breadth, LOEUF, independent expression, GC, local mutation rate, exon/promoter overlap verification or matched neutral controls",
+    "Thresholded ABC buffering proxy",
+    "Selected DE profiles and observational associations",
+    "Multiple tests exploratory; gene clustering does not capture genomic spatial correlation"
+  ]
+}
+{
+  "status": "Exploratory corrected hg38 pilot: supplied mapping internally checked; chain conversion not independently rerun",
+  "counts": {
+    "matched": 693,
+    "fully_covered": 692,
+    "zero_covered": 1,
+    "partially_covered": 0
+  },
+  "fully_covered_genes": 436,
+  "complete_cases": 635,
+  "complete_case_genes": 407,
+  "chromosomes": 22,
+  "spearman_unadjusted_descriptive": {
+    "rho": -0.029176031641432,
+    "naive_p_not_cluster_corrected": 0.44351140655472243
+  },
+  "regression_gene_clustered": {
+    "unadjusted_reach": {
+      "r2": 0.00022666521169423248,
+      "terms": {
+        "B": {
+          "beta": -0.009957056206169254,
+          "ci95": [
+            -0.06663174298298596,
+            0.04671763057064746
+          ],
+          "p": 0.7299939641249027
+        }
+      }
+    },
+    "baseline": {
+      "r2": 0.052597398765645065,
+      "terms": {}
+    },
+    "adjusted_reach": {
+      "r2": 0.053827245576288485,
+      "terms": {
+        "B": {
+          "beta": -0.027035587808885223,
+          "ci95": [
+            -0.09537511935695626,
+            0.04130394373918582
+          ],
+          "p": 0.43720263351422406
+        }
+      }
+    },
+    "adjusted_full": {
+      "r2": 0.05649767840435249,
+      "terms": {
+        "B": {
+          "beta": -0.026253058964139986,
+          "ci95": [
+            -0.09669832896996652,
+            0.04419221104168655
+          ],
+          "p": 0.4642191579164259
+        },
+        "R": {
+          "beta": 0.0352961331320553,
+          "ci95": [
+            -0.028138747785879152,
+            0.09873101404998974
+          ],
+          "p": 0.27468488078153674
+        },
+        "BxR": {
+          "beta": 0.01205676186973755,
+          "ci95": [
+            -0.05598881702308197,
+            0.08010234076255707
+          ],
+          "p": 0.7277822013364285
+        }
+      }
+    }
+  },
+  "chromosome_holdout_mse": {
+    "unadjusted_reach": 0.441578912369316,
+    "baseline": 0.43366109523473545,
+    "adjusted_reach": 0.4361052967209532,
+    "adjusted_full": 0.43950378650287936
+  },
+  "within_gene": {
+    "n": 379,
+    "genes": 151,
+    "terms": {
+      "R": {
+        "beta": -0.3975057879292417,
+        "ci95": [
+          -0.7876975366615444,
+          -0.007314039196939015
+        ],
+        "p": 0.04590973446103253
+      },
+      "BxR": {
+        "beta": 0.023521354514475925,
+        "ci95": [
+          -0.14820255780289776,
+          0.19524526683184962
+        ],
+        "p": 0.7870372400022858
+      }
+    }
+  },
+  "limitations": [
+    "No cross-context activity breadth, LOEUF, independent expression, GC, local mutation rate, exon/promoter overlap verification or matched neutral controls",
+    "Thresholded ABC buffering proxy",
+    "Selected DE profiles and observational associations",
+    "Multiple tests exploratory; gene clustering does not capture genomic spatial correlation"
+  ]
+}
