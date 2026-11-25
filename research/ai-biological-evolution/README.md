@@ -1,12 +1,14 @@
 # Artificial Intelligence as an Experimental Model of Biological Evolution
 
+**[Original illustrated PDF](AI_as_a_Laboratory_for_Biological_Evolution_Research_Prospectus.pdf)** · [Extracted PDF text](Prospectus_full_text.txt) · [Historical generation source](../../build/historical_make_ai_evolution_prospectus.py)
+
 *Investigating architectural invariance, functional equivalence and compensatory adaptation*
 
 **Randall S. Young — Independent researcher — ORCID [0009-0003-1657-0243](https://orcid.org/0009-0003-1657-0243)**
 
 Concept record 1.0 · 24 November 2026 · Proposed second paper · Not peer reviewed
 
-Readable Markdown edition of the four-page research prospectus; typography and conceptual diagram are adapted for GitHub. The original PDF has not yet been transferred.
+Readable Markdown edition of the four-page research prospectus; typography and conceptual diagram are adapted for GitHub. The original illustrated PDF is archived alongside this text.
 
 > Reverse the direction of inquiry.
 >
@@ -99,4 +101,4 @@ Suggested repository: a separate companion repository cross-linked to the founda
 
 ---
 
-Archive note: original four-page PDF, `AI_as_a_Laboratory_for_Biological_Evolution_Research_Prospectus.pdf` (91,090 bytes). SHA-256: `8e6a31ed733ed0afeb964b21737dac064118d05f238f8af958076ed3438ec5b6`. PDF binary pending transfer. The foundational paper is preserved at [version 7](../../publication/Architectural_Economy_v7.txt).
+Archive note: original four-page PDF, `AI_as_a_Laboratory_for_Biological_Evolution_Research_Prospectus.pdf` (91,090 bytes). SHA-256: `8e6a31ed733ed0afeb964b21737dac064118d05f238f8af958076ed3438ec5b6`. PDF binary archived and checksum-verified. The foundational paper is preserved at [version 7](../../publication/Architectural_Economy_v7.txt).

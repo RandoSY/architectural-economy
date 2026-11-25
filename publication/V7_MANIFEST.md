@@ -2,7 +2,7 @@
 
 Author-approved for repository preservation. Preprint candidate, not peer reviewed. Version 7 adds developmental system drift, historical PDP-8 hardware evolution, a revised Figure 11 and four additional references. Existing computational and genomic results remain unchanged. H3 and H3-M remain prospective.
 
-The complete searchable text is published in [Architectural_Economy_v7.txt](Architectural_Economy_v7.txt). This is extracted text, not a replacement for the typeset manuscript. The exact PDF, DOCX, PNG, SVG and historical generation scripts are pending binary/source-package transfer. The original Figure 11 contains schematics rather than actual historical photographs; [photo provenance](../figures/Figure11_photo_sources.md) is preserved separately.
+The complete searchable text is published in [Architectural_Economy_v7.txt](Architectural_Economy_v7.txt). This is extracted text, not a replacement for the typeset manuscript. The exact PDF, DOCX, PNG, SVG and historical generation scripts are archived and checksum-verified. See [master checksums](MASTER_SHA256SUMS.txt). The original Figure 11 contains schematics rather than actual historical photographs; [photo provenance](../figures/Figure11_photo_sources.md) is preserved separately.
 
 ## SHA-256 identifiers for the approved local originals
 

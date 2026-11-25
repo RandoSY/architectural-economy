@@ -13,6 +13,8 @@ Version 7.0 — 24 November 2026 — preprint candidate; not peer reviewed.
 
 ## Featured next investigation — Paper 2
 
+**[Download the original illustrated prospectus (PDF)](research/ai-biological-evolution/AI_as_a_Laboratory_for_Biological_Evolution_Research_Prospectus.pdf)** · [Searchable text](research/ai-biological-evolution/Prospectus_full_text.txt)
+
 **[Artificial Intelligence as an Experimental Model of Biological Evolution](research/ai-biological-evolution/README.md)**
 
 *Research prospectus 1.0 — 24 November 2026.*
@@ -23,7 +25,7 @@ Version 7.0 — 24 November 2026 — preprint candidate; not peer reviewed.
 - **H4b:** compensatory adaptation after perturbation.
 - **H4c:** predictive transfer of architectural measurements to independent biological evidence.
 
-The prospectus preserves a controlled neural-network experiment, functional equivalence measurements, decision gates, a literature review roadmap, and a handoff for future AI researchers. This is a separate proposed paper, not new experimental evidence for version 7. The complete prospectus text is available in the link above; the original illustrated PDF is identified by checksum pending binary transfer.
+The prospectus preserves a controlled neural-network experiment, functional equivalence measurements, decision gates, a literature review roadmap, and a handoff for future AI researchers. This is a separate proposed paper, not new experimental evidence for version 7. The complete prospectus is available as Markdown and as the original illustrated PDF.
 
 ## The next frontier: continuity of coordination
 
@@ -42,14 +44,19 @@ The roadmap defines experimental datasets, controls, falsification criteria, rep
 
 ## Read the paper
 
+- **[Version 7 PDF](publication/Architectural_Economy_v7.pdf)** — formatted manuscript
+- [Version 7 Word manuscript](publication/Architectural_Economy_v7.docx)
+- [Figure 11: PDP-8 evolution (PNG)](figures/Figure11_v7.png) · [SVG](figures/Figure11_v7.svg)
+- [Version 6 PDF](publication/Architectural_Economy_v6.pdf) · [Word](publication/Architectural_Economy_v6.docx)
+
 - **[Version 7 full text](publication/Architectural_Economy_v7.txt)** — latest author-approved 21-page, 46-reference manuscript, searchable text companion. Figure images and original formatting are not reproduced here.
-- [Version 7 archive manifest](publication/V7_MANIFEST.md) — exact formatted files and source package pending transfer.
+- [Version 7 archive manifest](publication/V7_MANIFEST.md) — exact formatted files and source package archived.
 - [Figure 11 historical photo provenance](figures/Figure11_photo_sources.md) — authentic historical photographs for a future photo-based edition.
 
 Version 7 grounds functional continuity in developmental system drift and the historical evolution of PDP-8-compatible hardware. The analogy concerns preserved functional behavior, not biological identity or deliberate engineering of organisms.
 
 - **[Version 6 full text](publication/Architectural_Economy_v6.txt)** — searchable companion extracted from all 21 pages of the author-approved manuscript; figure images and original formatting are not reproduced here.
-- [Version 6 transfer manifest and checksums](publication/V6_MANIFEST.md) — formatted PDF, DOCX and Figure 12 pending binary transfer at this checkpoint.
+- [Version 6 transfer manifest and checksums](publication/V6_MANIFEST.md) — checksums for the archived formatted files.
 - [Version 5 PDF](publication/Architectural_Economy_v5.pdf)
 - [Version 5 Word manuscript](publication/Architectural_Economy_v5.docx)
 - [Reproduction instructions](REPRODUCE.md)
@@ -68,3 +75,7 @@ Version 7 grounds functional continuity in developmental system drift and the hi
 `publication/` contains versioned manuscripts; `simulations/`, `results/`, `audit/` and `figures/` contain computational evidence; `genomics/` contains cohort preparation and corrected analysis; `archive/` preserves earlier work and editorial notes. Historical build scripts are included for provenance. The corrected pilot supersedes the invalid initial mapping analysis. Large upstream datasets are referenced rather than redistributed. Confirm applicable third-party reuse terms before publishing derived datasets or code. No license beyond existing applicable rights is asserted here.
 
 Journal target: BioSystems. DOI pending. AI assistance: ChatGPT and Google Gemini/Antigravity contributed to drafting, implementation, editing and checking. The human author is responsible for final approval.
+
+[Full-resolution project logo](assets/architectural-economy-logo-full.png) · [FEM Figure 12](figures/FEM_figure12.png)
+
+[Master archive SHA-256 checksums](publication/MASTER_SHA256SUMS.txt)

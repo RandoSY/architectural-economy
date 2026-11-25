@@ -8,7 +8,7 @@ Version 6 integrates Molecular Functional Equivalence (H3-M), Functional Equival
 
 The full searchable companion `Architectural_Economy_v6.txt` is published here directly from the 21-page PDF's extracted text. It is not a substitute for the formatted original. The portable figure generator is `../build/plot_fem_v6.py`.
 
-The following checksums identify the exact local author-approved files and historical build script. They are the binary-transfer manifest, not evidence that those paths have already been uploaded.
+The following checksums identify the exact local author-approved files and historical build script. The exact files are archived and checksum-verified. See [master checksums](MASTER_SHA256SUMS.txt).
 
 ```text
 b5d2bf43d331658c747967e17a1f05bb51127291bbc2a98a2dcb24c23591ff8b  publication/Architectural_Economy_v6.docx
