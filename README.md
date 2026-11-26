@@ -7,7 +7,7 @@ ORCID: [0009-0003-1657-0243](https://orcid.org/0009-0003-1657-0243)
 
 *Architectural economy, shared dependencies and functional continuity: from the PDP-8 to the regulatory genome.*
 
-Version 7.0 — 24 November 2026 — preprint candidate; not peer reviewed.
+Version 9.0 — 26 November 2026 — unreviewed working preprint (24 pages, 47 references); part of the [From Circuits to Genomes (C2G)](https://github.com/RandoSY/circuits-to-genomes) portfolio.
 
 > The enduring property of a complex system may reside not in the permanence of its components, but in the continuity of their coordination.
 
@@ -44,6 +44,8 @@ The roadmap defines experimental datasets, controls, falsification criteria, rep
 
 ## Read the paper
 
+- **[Version 9 PDF (current working preprint)](publication/Architectural_Economy_v9.pdf)** — 24-page, 47-reference revision integrating companion H3-M empirical feedback · [Version 9 revision record](publication/V9_MANIFEST.md)
+- [Version 8 PDF](publication/Architectural_Economy_v8.pdf) · [Version 8 Word manuscript](publication/Architectural_Economy_v8.docx) — 22-page baseline prior to H3-M synthesis
 - **[Version 7 PDF](publication/Architectural_Economy_v7.pdf)** — formatted manuscript
 - [Version 7 Word manuscript](publication/Architectural_Economy_v7.docx)
 - [Figure 11: PDP-8 evolution (PNG)](figures/Figure11_v7.png) · [SVG](figures/Figure11_v7.svg)
@@ -67,7 +69,7 @@ Version 7 grounds functional continuity in developmental system drift and the hi
 
 - **H1:** Supported within the specified computational models. Shared subroutines save 70.8% of code words at 64 PDP-8 tasks, with a 4.1% increase in modeled memory cycles. Reuse concentrates failure dependencies; coordination machinery may introduce additional vulnerabilities.
 - **H2:** Not supported by the corrected exploratory K562 pilot (636 regions, 408 genes). Adjusted reach coefficient −0.026 (95% CI −0.094 to 0.042); reach–buffering interaction 0.012 (−0.056 to 0.080). The analysis is limited and is not a definitive rejection.
-- **H3-M / Functional Equivalence Mapping (FEM):** Prospective molecular test comparing nucleotide divergence with independently assayed regulatory activity and prespecified equivalence margins, then evaluating architectural predictors on held-out data. No new empirical H3-M results.
+- **H3-M / Functional Equivalence Mapping (FEM):** Evaluated in the companion [C2G Paper 2 v1.1](https://github.com/RandoSY/circuits-to-genomes) reanalysis of public primate enhancer assays and synthesized in Version 9 (§7.4–§7.5). At ±0.15 log₂, 244/386 (63.2%) active paired HAR fragments were classified equivalent under empirical-Bayes moderation (168/386 [43.5%] unmoderated); post-hoc JASPAR PWM features modestly improved held-out LOCO AUC from 0.5971 to 0.6260, and four of eight selected combinatorial series showed negative nonadditivity at two-sided 95% (df = 2; |t| > 4.303). Neither homotypic motif multiplicity nor locus-level co-enhancer multiplicity was supported, and independent specialist validation remains pending.
 - **H3:** Prospective hypothesis that essential coordinated behavior may persist despite changes in molecular implementation. Not tested in this work.
 
 ## Repository structure
